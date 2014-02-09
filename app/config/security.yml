@@ -1,0 +1,49 @@
+security:
+    acl:
+        connection: default
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username_email
+
+    encoders:
+        FOS\UserBundle\Model\UserInterface: sha512
+
+    firewalls:
+        main:
+            pattern: ^/
+            form_login:
+                provider: fos_userbundle
+                login_path: /signin
+                check_path: /signin-check
+                csrf_provider: form.csrf_provider
+            logout:       true
+            anonymous:    true
+
+    access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/signup, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/, role: ROLE_ADMIN }
+
+    role_hierarchy:
+        # Passel
+        ROLE_PASSEL_USER: [ROLE_USER]
+        ROLE_PASSEL_LEADER: [ROLE_USER]
+        ROLE_PASSEL_ADMIN: [ROLE_PASSEL_USER, ROLE_PASSEL_LEADER]
+        # Facility
+        ROLE_FACILITY_USER: [ROLE_USER]
+        ROLE_FACILITY_FACULTY: [ROLE_USER]
+        ROLE_FACILITY_ADMIN: [ROLE_FACILITY_USER, ROLE_FACILITY_FACULTY, ROLE_PASSEL_ADMIN]
+        # Region
+        ROLE_REGION_USER: [ROLE_USER]
+        ROLE_REGION_ADMIN: [ROLE_FACILITY_ADMIN, ROLE_REGION_USER]
+        # Council
+        ROLE_COUNCIL_USER: [ROLE_USER]
+        ROLE_COUNCIL_ADMIN: [ROLE_REGION_ADMIN, ROLE_COUNCIL_USER]
+        # Organization
+        ROLE_ORG_USER: [ROLE_USER]
+        ROLE_ORG_ADMIN: [ROLE_COUNCIL_ADMIN, ROLE_ORG_USER]
+        # Admin
+        ROLE_ADMIN: [ROLE_ORG_ADMIN]
+        ROLE_SUPER_ADMIN: [ROLE_SUPER_ADMIN]

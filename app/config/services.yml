@@ -1,0 +1,35 @@
+
+services:
+################################################################################
+## Pagerfanta ##################################################################
+################################################################################
+    pagerfanta.view.default:
+        class: Pagerfanta\View\DefaultView
+        public: false
+        tags: [{ name: pagerfanta.view, alias: default }]
+
+################################################################################
+## KnP Menu ####################################################################
+################################################################################
+    Volleyball_menu.menu_builder:
+        class: Volleyball\UtilityBundle\Menu\MenuBuilder
+        arguments: ["@knp_menu.factory"]
+
+    Volleyball_menu.menu.main:
+        class: Knp\Menu\MenuItem
+        factory_service: Volleyball_menu.menu_builder
+        factory_method: createMainMenu
+        arguments: [ "@request", "@service_container" ]
+        scope: request
+        tags:
+            - { name: knp_menu.menu, alias: main }
+
+    Volleyball_menu.menu.nonauth:
+        class: Knp\Menu\MenuItem
+        factory_service: Volleyball_menu.menu_builder
+        factory_method: createNonAuthMenu
+        arguments: [ "@request" ]
+        scope: request
+        tags:
+            - { name: knp_menu.menu, alias: nonauth }
+            

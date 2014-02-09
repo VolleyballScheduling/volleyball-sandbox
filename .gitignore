@@ -1,0 +1,20 @@
+# Configuration files
+app/config/parameters.ini
+web/bundles/*
+# Composer
+volleyball.sublime-*
+web/uploads/*
+# Symfony directories
+vagrant/Personalization
+# Bootstrap
+app/config/parameters.yml
+*~
+# Misc
+/nbproject
+app/bootstrap*
+vendor/*
+composer.phar
+*/cache/*
+/vagrant/.vagrant
+composer.lock
+*/logs/*

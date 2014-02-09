@@ -1,0 +1,79 @@
+Volleyball_attribute:
+    resource: "@VolleyballAttributeBundle/Controller/"
+    type:     annotation
+    prefix:   "/{attr_path}/"
+
+Volleyball_course:
+    resource: "@VolleyballCourseBundle/Controller/"
+    type: annotation
+    prefix: /courses
+
+Volleyball_enrollment:
+    resource: "@VolleyballEnrollmentBundle/Controller/"
+    type: annotation
+    prefix: /enrollments
+
+Volleyball_facility:
+    resource: "@VolleyballFacilityBundle/Controller/"
+    type: annotation
+    prefix: /facilities
+
+Volleyball_organization:
+    resource: "@VolleyballOrganizationBundle/Controller/"
+    type: annotation
+    prefix: /organizations
+
+Volleyball_passel:
+    resource: "@VolleyballPasselBundle/Controller/"
+    type: annotation
+    prefix: /passels
+
+Volleyball_report:
+    resource: "@VolleyballReportBundle/Controller/"
+    type: annotation
+    prefix: /reports
+
+Volleyball_user:
+    resource: "@VolleyballUserBundle/Controller/"
+    type: annotation
+    prefix: /
+
+about:
+    pattern: /about
+    defaults: { _controller: VolleyballUserBundle:User:AboutVolleyball }
+
+contact:
+    pattern: /contact
+    defaults: { _controller: VolleyballUserBundle:User:ContactVolleyball }
+
+fos_user_security_login:
+    pattern: /signin
+    defaults: { _controller: FOSUserBundle:Security:login }
+
+fos_user_security_check:
+    pattern: /signin-check
+    defaults: { _controller: FOSUserBundle:Security:check }
+
+fos_user_security_logout:
+    pattern: /signout
+    defaults: { _controller: FOSUserBundle:Security_logout }
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /signup
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile
+
+_imagine:
+    resource: .
+    type:     imagine

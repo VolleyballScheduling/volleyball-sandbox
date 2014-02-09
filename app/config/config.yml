@@ -1,0 +1,261 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: doctrine_extensions.yml }
+    - { resource: services.yml }
+
+#####################################################################################
+## Framwork Configuration
+#####################################################################################
+framework:
+    #esi:             ~
+    translator:      ~
+    secret:          %secret%
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: %kernel.debug%
+    form:            true
+    csrf_protection: true
+    validation:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+        #assets_version: SomeVersionScheme
+    default_locale:  "%locale%"
+    trusted_proxies: ~
+    session:         ~
+    fragments:       ~
+
+#####################################################################################
+## Twig Configuration
+#####################################################################################
+twig:
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug%
+    form:
+        resources: ~
+#            - "BcBootstrapBundle:Form:form_div_layout.html.twig"
+
+#####################################################################################
+## Assetic Configuration
+#####################################################################################
+assetic:
+    debug:          %kernel.debug%
+    use_controller: false
+    bundles:        [ ]
+    #java: /usr/bin/java
+    filters:
+        cssrewrite: ~
+        less:
+            node: /usr/bin/nodejs
+            node_paths: [ /usr/local/lib/node_modules/ ]
+            apply_to:   "\.less$"
+    assets:
+        bootstrap_css:
+            inputs:
+                - %kernel.root_dir%/../src/Volleyball/UtilityBundle/Resources/public/less/build.less
+            filters:
+                - less
+                - cssrewrite
+            output: css/bootstrap.css
+        bootstrap_js:
+            inputs:
+                - %kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-transition.js
+                - %kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-alert.js
+                - %kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-button.js
+                - %kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-carousel.js
+                - %kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-collapse.js
+                - %kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-dropdown.js
+                - %kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-modal.js
+                - %kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-tooltip.js
+                - %kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-popover.js
+                - %kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-scrollspy.js
+                - %kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-tab.js
+                - %kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-typeahead.js
+                - %kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-affix.js
+            output: bundles/Volleyballutility/js/bootstrap.js
+        jquery:
+            inputs:
+                - %kernel.root_dir%/../vendor/jquery/jquery/jquery-1.9.1.js
+            output: bundles/volleyballutility/js/jquery.js
+
+#####################################################################################
+## Doctrine Configuration
+#####################################################################################
+doctrine:
+    dbal:
+        driver:   %database_driver%
+        host:     %database_host%
+        port:     %database_port%
+        dbname:   %database_name%
+        user:     %database_user%
+        password: %database_password%
+        charset:  UTF8
+        # if using pdo_sqlite as your database driver, add the path in parameters.yml
+        # e.g. database_path: %kernel.root_dir%/data/data.db3
+        # path:     %database_path%
+
+    orm:
+        auto_generate_proxy_classes: %kernel.debug%
+        entity_managers:
+            default:
+                auto_mapping: true
+                mappings:
+                    FOSUserBundle: ~
+                    VolleyballUserBundle: ~
+                    gedmo_translatable:
+                        type: annotation
+                        prefix: Gedmo\Translatable\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
+                        alias: GedmoTranslatable # this one is optional and will default to the name set for the mapping
+                        is_bundle: false
+                    gedmo_translator:
+                        type: annotation
+                        prefix: Gedmo\Translator\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translator/Entity"
+                        alias: GedmoTranslator # this one is optional and will default to the name set for the mapping
+                        is_bundle: false
+                    gedmo_loggable:
+                        type: annotation
+                        prefix: Gedmo\Loggable\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
+                        alias: GedmoLoggable # this one is optional and will default to the name set for the mapping
+                        is_bundle: false
+                    gedmo_tree:
+                        type: annotation
+                        prefix: Gedmo\Tree\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity"
+                        alias: GedmoTree # this one is optional and will default to the name set for the mapping
+                        is_bundle: false
+
+################################################################################
+## Doctrine Extensions
+################################################################################
+stof_doctrine_extensions:
+    default_locale: en_US
+    orm:
+        default:
+          timestampable: true
+          sluggable: true
+
+################################################################################
+## Swiftmailer Configuration
+################################################################################
+swiftmailer:
+    transport: %mailer_transport%
+    host:      %mailer_host%
+    username:  %mailer_user%
+    password:  %mailer_password%
+    spool:     { type: memory }
+
+################################################################################
+## FOS Configuration
+################################################################################
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: Volleyball\UserBundle\Entity\User
+    service:
+        user_manager: pugx_user_manager
+
+################################################################################
+## JMS Configuration
+################################################################################
+jms_security_extra:
+    secure_all_services: false
+    enable_iddqd_attribute: false
+    expressions: false
+    voters:
+        disable_authenticated: false
+        disable_role:          false
+        disable_acl:           false
+    method_access_control: { }
+jms_aop:
+    cache_dir: %kernel.cache_dir%/jms_aop
+
+################################################################################
+## KNP Configuration
+################################################################################
+knp_menu:
+    twig: # false
+        template: VolleyballUtilityBundle:Menu:layout.html.twig
+    default_renderer: twig
+
+################################################################################
+## PUGX Configuration
+################################################################################
+pugx_multi_user:
+    users:
+        faculty:
+            entity:
+                class: Volleyball\FacilityBundle\Entity\Faculty
+            registration:
+                form:
+                    type: Volleyball\UserBundle\Form\Type\RegistrationFacultyFormType
+                    name: fos_user_registration_form
+                    validation_groups: [Profile, Default, Faculty]
+                template: VolleyballUserBundle:Faculty:registration.form.html.twig
+            profile:
+                form:
+                    type: Volleyball\UserBundle\Form\Type\ProfileFacultyFormType
+                    name: fos_user_profile_form
+                    validation_groups: [Profile, Default, Faculty]
+        leader:
+            entity:
+                class: Volleyball\PasselBundle\Entity\Leader
+            registration:
+                form:
+                    type: Volleyball\UserBundle\Form\Type\RegistrationLeaderFormType
+                    name: fos_user_registration_form
+                    validation_groups: [Profile, Default, Leader]
+                template: VolleyballUserBundle:Leader:registration.form.html.twig
+            profile:
+                form:
+                    type: Volleyball\UserBundle\Form\Type\ProfileLeaderFormType
+                    name: fos_user_profile_form
+                    validation_groups: [Profile, Default, Leader]
+        attendee:
+            entity:
+                class: Volleyball\PasselBundle\Entity\Attendee
+            registration:
+                form:
+                    type: Volleyball\UserBundle\Form\Type\RegistrationAttendeeFormType
+                    name: fos_user_registration_form
+                    validation_groups: [Profile, Default, Attendee]
+                template: VolleyballUserBundle:Attendee:registration.form.html.twig
+            profile:
+                form:
+                    type: Volleyball\UserBundle\Form\Type\ProfileAttendeeFormType
+                    name: fos_user_profile_form
+                    validation_groups: [Profile, Default, Attendee]
+        admin:
+            entity:
+                class: Volleyball\UserBundle\Entity\Admin
+            registration:
+                form:
+                    type: Volleyball\UserBundle\Form\Type\RegistrationAdminFormType
+                    name: fos_user_registration_form
+                    validation_groups: [Profile, Default, Admin]
+                template: VolleyballUserBundle:Admin:registration.form.html.twig
+            profile:
+                form:
+                    type: Volleyball\UserBundle\Form\Type\ProfileAdminFormType
+                    name: fos_user_profile_form
+                    validation_groups: [Profile, Default]
+
+################################################################################
+## IMAGINE Configuration
+################################################################################
+liip_imagine:
+    filter_sets:
+        carousel_sm:
+            filters:
+                thumbnail: { size: [940, 400], mode: outbound }
+        carousel_lg:
+            filters:
+                thumbnail: { size: [1170, 400], mode: outbound }
+
+###############################################################################
+## PAGERFANTA Configuration
+###############################################################################
+white_october_pagerfanta:
+    default_view: twitter_bootstrap

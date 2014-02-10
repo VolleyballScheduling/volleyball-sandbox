@@ -24,9 +24,9 @@
             "type": "package",
             "package": {
                 "name": "jquery/jquery",
-                "version": "1.9.1",
+                "version": "2.1.0",
                 "dist": {
-                    "url": "http://code.jquery.com/jquery-1.9.1.js",
+                    "url": "http://code.jquery.com/jquery-2.1.0.min.js",
                     "type": "file"
                 }
             }
@@ -69,7 +69,7 @@
 
         "braincrafted/bootstrap-bundle":                                    "1.4.2",
         "twitter/bootstrap":                                                "2.3.*",
-        "jquery/jquery":                                                    "1.9.*",
+        "jquery/jquery":                                                    "2.1.0",
         "leafo/lessphp":                                               "dev-master",
 
         "vich/uploader-bundle":                                   "dev-master",
@@ -85,7 +85,6 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
@@ -106,13 +105,13 @@
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
         "branch-alias": {
-            "dev-master": "2.2-dev"
+            "dev-master": "1.0-dev"
         }
     },
     "autoload": {
         "psr-0": {
             "Volleyball": "src/",
-            "PUGX\\MultiUserBundle": "vendor/ner0tic/multi-user-bundle/",
+            "PUGX\\MultiUserBundle": "vendor/ner0tic/multi-user-bundle/"
         }
     }
 }

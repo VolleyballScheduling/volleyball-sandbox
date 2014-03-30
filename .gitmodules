@@ -22,3 +22,6 @@
 [submodule "src/Volleyball/UtilityBundle"]
 	path = src/Volleyball/UtilityBundle
 	url = git://github.com/VolleyballScheduling/UtilityBundle.git
+[submodule "vagrant"]
+	path = vagrant
+	url = https://github.com/VolleyballScheduling/vagrant.git

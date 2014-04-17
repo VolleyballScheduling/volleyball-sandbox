@@ -41,20 +41,19 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [ ]
-    #java: /usr/bin/java
     filters:
+        lessphp:
+            file: %kernel.root_dir%/../vendor/leafo/lessphp/lessc.inc.php
+            apply_to: "\.less$"
+        less: ~
         cssrewrite: ~
-        less:
-            node: /usr/bin/nodejs
-            node_paths: [ /usr/local/lib/node_modules/ ]
-            apply_to:   "\.less$"
     assets:
         bootstrap_css:
             inputs:
-                - %kernel.root_dir%/../src/Volleyball/UtilityBundle/Resources/public/less/build.less
+                - %kernel.root_dir%/../vendor/twitter/bootstrap/less/bootstrap.less
+                - %kernel.root_dir%/../vendor/twitter/bootstrap/less/responsive.less
             filters:
-                - less
+                - lessphp
                 - cssrewrite
             output: css/bootstrap.css
         bootstrap_js:
@@ -72,11 +71,11 @@ assetic:
                 - %kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-tab.js
                 - %kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-typeahead.js
                 - %kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-affix.js
-            output: bundles/Volleyballutility/js/bootstrap.js
+            output: js/bootstrap.js
         jquery:
             inputs:
                 - %kernel.root_dir%/../vendor/jquery/jquery/jquery-1.9.1.js
-            output: bundles/volleyballutility/js/jquery.js
+            output: js/jquery.js
 
 #####################################################################################
 ## Doctrine Configuration
@@ -90,10 +89,7 @@ doctrine:
         user:     %database_user%
         password: %database_password%
         charset:  UTF8
-        # if using pdo_sqlite as your database driver, add the path in parameters.yml
-        # e.g. database_path: %kernel.root_dir%/data/data.db3
-        # path:     %database_path%
-
+    
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         entity_managers:
@@ -259,3 +255,13 @@ liip_imagine:
 ###############################################################################
 white_october_pagerfanta:
     default_view: twitter_bootstrap
+
+white_october_breadcrumbs:
+    separator: '<i class="fa fa-long-arrow-right"></i>'
+
+################################################################################
+## Twitter Bootstrap
+################################################################################
+#bc_bootstrap:
+#    assets_dir:  %kernel.root_dir%/../vendor/twitter/bootstrap
+#    jquery_path: %kernel.root_dir%/../vendor/jquery/jquery/jquery-1.9.1.js

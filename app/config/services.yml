@@ -1,16 +1,15 @@
 
 services:
-################################################################################
-## Pagerfanta ##################################################################
-################################################################################
+    twig.extension.text:
+        class: Twig_Extensions_Extension_Text
+        tags:
+            - { name: twig.extension }
+
     pagerfanta.view.default:
         class: Pagerfanta\View\DefaultView
         public: false
         tags: [{ name: pagerfanta.view, alias: default }]
 
-################################################################################
-## KnP Menu ####################################################################
-################################################################################
     volleyball_menu.menu_builder:
         class: Volleyball\UtilityBundle\Menu\MenuBuilder
         arguments: ["@knp_menu.factory"]
@@ -33,3 +32,8 @@ services:
         tags:
             - { name: knp_menu.menu, alias: nonauth }
             
+    volleyball_menu.voter.request:
+        class: Volleyball\UtilityBundle\Menu\RequestVoter
+        arguments: [ "@service_container" ]
+        tags:
+            - { name: knp_menu.voter }

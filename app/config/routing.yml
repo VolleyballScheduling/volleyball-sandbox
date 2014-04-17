@@ -1,7 +1,7 @@
-Volleyball_attribute:
-    resource: "@VolleyballAttributeBundle/Controller/"
-    type:     annotation
-    prefix:   "/{attr_path}/"
+# Volleyball_attribute:
+#     resource: "@VolleyballAttributeBundle/Controller/"
+#     type:     annotation
+#     prefix:   "/{attr_path}/"
 
 Volleyball_course:
     resource: "@VolleyballCourseBundle/Controller/"
@@ -36,15 +36,19 @@ Volleyball_report:
 Volleyball_user:
     resource: "@VolleyballUserBundle/Controller/"
     type: annotation
-    prefix: /
+    prefix: /users
+
+homepage:
+    pattern: /
+    defaults: { _controller: VolleyballUtilityBundle:Homepage:index }
 
 about:
     pattern: /about
-    defaults: { _controller: VolleyballUserBundle:User:AboutVolleyball }
+    defaults: { _controller: VolleyballUtilityBundle:Homepage:about }
 
 contact:
     pattern: /contact
-    defaults: { _controller: VolleyballUserBundle:User:ContactVolleyball }
+    defaults: { _controller: VolleyballUtilityBundle:Homepage:contact }
 
 fos_user_security_login:
     pattern: /signin

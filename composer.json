@@ -3,9 +3,6 @@
     "license": "MIT",
     "type": "project",
     "description": "A summer camp (and alike) scheduling system.",
-    "autoload": {
-        "psr-0": { "": "src/" }
-    },
     "repositories": [
         {
             "type": "package",
@@ -50,10 +47,11 @@
 
         "incenteev/composer-parameter-handler":                              "~2.0",
 
-        "sensio/distribution-bundle":                                       "~2.3",
-        "sensio/framework-extra-bundle":                                    "~3.0",
-        "sensio/generator-bundle":                                          "~2.3",
+        "sensio/distribution-bundle":                                        "~2.3",
+        "sensio/framework-extra-bundle":                                     "~3.0",
+        "sensio/generator-bundle":                                           "~2.3",
 
+        "jms/aop-bundle":                                                 "1.0.1",
         "jms/security-extra-bundle":                                    "1.5.*@dev",
         "jms/di-extra-bundle":                                          "1.4.*@dev",
         "jms/translation-bundle":                                           "1.1.*",
@@ -64,6 +62,7 @@
         "friendsofsymfony/user-bundle":                                 "2.0.*@dev",
         "pugx/multi-user-bundle":                                       "3.0.*@dev",
 
+        "whiteoctober/breadcrumbs-bundle":                             "dev-master",
         "white-october/pagerfanta-bundle":                             "dev-master",
         "pagerfanta/pagerfanta":                                       "dev-master",
 

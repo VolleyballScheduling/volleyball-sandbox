@@ -30,7 +30,9 @@ class AppKernel extends Kernel
             
             new Liip\ImagineBundle\LiipImagineBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
+            new WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle(),
             
             new Volleyball\UserBundle\VolleyballUserBundle(),
             new Volleyball\PasselBundle\VolleyballPasselBundle(),

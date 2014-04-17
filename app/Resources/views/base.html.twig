@@ -34,15 +34,7 @@
                 <i class="fa fa-bookmark fa fa-large"></i><br />
                 <a href="{{ path( 'homepage') }}">{{ 'scheduling for summer camps' | title }}</a>
             </h1>
-            {#
-            {% if app.user %}
-            {{ knp_menu_render('main') }} 
-            {% else %}
-            #}
-            {{ knp_menu_render('nonauth') }}
-            {#
-            {% endif %}
-            #}
+            {% block menu %}{{ knp_menu_render('main') }}{% endblock %}
         </div>
         {% endblock %}
         {% block content %}{% endblock %}

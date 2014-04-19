@@ -1,27 +1,3 @@
-[submodule "src/Volleyball/CourseBundle"]
-	path = src/Volleyball/CourseBundle
-	url = git://github.com/VolleyballScheduling/CourseBundle.git
-[submodule "src/Volleyball/EnrollmentBundle"]
-	path = src/Volleyball/EnrollmentBundle
-	url = git://github.com/VolleyballScheduling/EnrollmentBundle.git
-[submodule "src/Volleyball/FacilityBundle"]
-	path = src/Volleyball/FacilityBundle
-	url = git://github.com/VolleyballScheduling/FacilityBundle.git
-[submodule "src/Volleyball/ReportBundle"]
-	path = src/Volleyball/ReportBundle
-	url = git://github.com/VolleyballScheduling/ReportBundle.git
-[submodule "src/Volleyball/PasselBundle"]
-	path = src/Volleyball/PasselBundle
-	url = git://github.com/VolleyballScheduling/PasselBundle.git
-[submodule "src/Volleyball/OrganizationBundle"]
-	path = src/Volleyball/OrganizationBundle
-	url = git://github.com/VolleyballScheduling/OrganizationBundle.git
-[submodule "src/Volleyball/UserBundle"]
-	path = src/Volleyball/UserBundle
-	url = git://github.com/VolleyballScheduling/UserBundle.git
-[submodule "src/Volleyball/UtilityBundle"]
-	path = src/Volleyball/UtilityBundle
-	url = git://github.com/VolleyballScheduling/UtilityBundle.git
 [submodule "vagrant"]
 	path = vagrant
 	url = https://github.com/VolleyballScheduling/vagrant.git

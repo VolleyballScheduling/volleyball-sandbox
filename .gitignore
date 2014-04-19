@@ -1,20 +1,29 @@
 # Configuration files
 app/config/parameters.ini
-web/bundles/*
-# Composer
-volleyball.sublime-*
-web/uploads/*
-# Symfony directories
-vagrant/Personalization
-# Bootstrap
 app/config/parameters.yml
-*~
-# Misc
-/nbproject
 app/bootstrap*
-vendor/*
+
+# Web
+web/bundles/*
+web/uploads/*
+
+# Composer
 composer.phar
-*/cache/*
+
+# Editors
+volleyball.sublime-*
+/nbproject
+
+# Vagrant
 /vagrant/.vagrant
-composer.lock
+vagrant/Personalization
+
+# Misc
+*~
+
+# Vendors
+vendor/*
+
+# Spacehogs
+*/cache/*
 */logs/*

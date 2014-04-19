@@ -1,0 +1,7 @@
+parameters:
+#    Volleyball_enrollment.example.class: Volleyball\EnrollmentBundle\Example
+
+services:
+#    Volleyball_enrollment.example:
+#        class: %Volleyball_enrollment.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

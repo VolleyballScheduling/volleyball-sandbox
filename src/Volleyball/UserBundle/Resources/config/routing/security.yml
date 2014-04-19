@@ -1,0 +1,32 @@
+fos_user_security_login:
+    pattern: /login
+    defaults: { _controller: FOSUserBundle:Security:login }
+fos_user_security_check:
+    pattern: /login-check
+    defaults: { _controller: FOSUserBundle:Security:check }
+fos_user_security_logout:
+    pattern: /logout
+    defaults: { _controller: FOSUserBundle:Security:logout }
+_security_check:
+    pattern:  /login_check
+    defaults: { _controller: FOSUserBundle:Security:check }
+_security_logout:
+    pattern:  /logout    
+facebook_check:
+    pattern: /login/check-facebook
+    defaults: { _controller: FOSUserBundle:Security:check }
+google_check:
+    pattern: /login/check-google
+    defaults: { _controller: FOSUserBundle:Security:check }
+github_check:
+    pattern: /login/check-github
+    defaults: { _controller: FOSUserBundle:Security:check }
+linkedin_check:
+    pattern: /login/check-linkedin
+    defaults: { _controller: FOSUserBundle:Security:check }
+foursquare_check:
+    pattern: /login/check-foursquare
+    defaults: { _controller: FOSUserBundle:Security:check }
+connect:
+    pattern: /connect/
+    defaults: { _controller: FOSUserBundle:Security:check }

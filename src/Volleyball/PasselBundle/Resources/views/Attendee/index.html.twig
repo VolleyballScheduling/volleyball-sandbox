@@ -1,0 +1,103 @@
+{% extends '::layout.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('/bundles/Volleyballuser/css/Base/index.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/bundles/Volleyballpassel/css/attendee.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/bundles/Volleyballuser/css/Base/datatable.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+<div class="fluid-row">
+    <div class="span12">
+        <h1>
+            {{ 'attendees' | title }}
+            {% if is_granted("ROLE_ADMIN") %}
+            <a href="{{ path( 'volleyball_attendee_new' ) }}" alt="{{ 'add an attendee' }}">
+                <i class="icon-plus on icon-check-empty pull-right"></i>
+           </a>
+           {% endif %}
+        </h1>
+
+        {% block datatable %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    {# last name #}
+                    <th>
+                        <a href="#" class="sort-toggle">{{ 'last name' | title }}</a>
+                    </th>
+                    {# last name #}
+                    <th>
+                        <a href="#" class="sort-toggle">{{ 'first name' | title }}</a>
+                    </th>
+                    {# birthdate #}
+                    <th>
+                        <a href="#" class="sort-toggle">{{ 'birthdate' | title }}</a>
+                    </th>
+                    {# rank #}
+                    <th>
+                        <a href="#" class="sort-toggle">{{ 'rank' | title }}</a>
+                    </th>
+                    {# faction #}
+                    <th>
+                        <a href="#" class="sort-toggle">{{ 'faction' | title }}</a>
+                    </th>
+                    {# passel #}
+                    <th>
+                        <a href="#" class="sort-toggle">{{ 'passel' | title }}</a>
+                    </th>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for attendee in attendees %}
+                <tr>
+                    <td>
+                        <a href="{{ path( 'volleyball_attendee_show', { 'slug': attendee.slug } ) }}">
+                            {{ attendee.lastname }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ path( 'volleyball_attendee_show', { 'slug': attendee.slug } ) }}">
+                            {{ attendee.firstname }}
+                        </a>
+                    </td>
+                    <td>
+                        {{ attendee.birthdate }}
+                    </td>
+                    <td>
+                        <a href="{{ path( 'volleyball_rank_show', { 'slug': attendee.Rank.slug } ) }}">
+                            {{ attendee.Rank.name }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ path( 'volleyball_faction_show', { 'slug': attendee.Faction.slug } ) }}">
+                            {{ attendee.faction | title }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ path( 'volleyball_passel_show', { 'slug': attendee.Passel.slug } ) }}">
+                            {{ attendee.Passel.name | title }}
+                        </a>
+                    </td>
+                    {% include 'VolleyballUserBundle:Datatable:datatable.controls.html.twig' with { 'slug': attendee.slug, 'type': 'attendee' } %}
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5">
+                        <em>{{ 'no attendees found.' | title }}</em>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% include 'VolleyballUserBundle:Datatable:datatable.footer.html.twig' with { 'pager': pager } %}
+        {% endblock %}
+    </div>
+</div>
+{% endblock %}

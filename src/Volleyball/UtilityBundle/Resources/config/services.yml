@@ -1,0 +1,6 @@
+services:
+    utility_listener:
+        class: Volleyball\UtilityBundle\Listener\UtilityListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+        arguments: [ @service_container ]

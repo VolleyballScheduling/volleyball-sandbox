@@ -1,0 +1,7 @@
+parameters:
+#    Volleyball_course.example.class: Volleyball\CourseBundle\Example
+
+services:
+#    Volleyball_course.example:
+#        class: %Volleyball_course.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

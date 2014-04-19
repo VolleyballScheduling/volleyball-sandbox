@@ -1,0 +1,7 @@
+parameters:
+#    Volleyball_report.example.class: Volleyball\ReportBundle\Example
+
+services:
+#    Volleyball_report.example:
+#        class: %Volleyball_report.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

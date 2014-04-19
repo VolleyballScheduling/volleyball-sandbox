@@ -1,0 +1,35 @@
+{% extends '::base.html.twig' %}
+{% block stylesheets %}
+    <link href="{{ asset('/css/dashboard.css.php') }}" rel="stylesheet" />
+    {{ parent() }}
+{% endblock %}
+    
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('/js/dashboard.js.php') }}" type="text/javascript" />  
+{% endblock %}
+
+{% block main_content %}
+        <div class="verticaltabs-container"> 
+            <ul class="tabs">
+                <li class="active">
+                    <a href="#">enrollment</a>
+                </li>
+                <li>
+                    <a href="#">medications</a>
+                </li>
+                <li>
+                    <a href="#">reports</a>
+                </li>
+                <li>
+                    <a href="#">blog</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="enrollment"></div>
+                <div class="tab-pane" id="medications">...</div>
+                <div class="tab-pane" id="reports">...</div>
+                <div class="tab-pane" id="blog">...</div>
+            </div>
+        </div>
+{% endblock %}

@@ -1,4 +1,3 @@
-
 services:
     twig.extension.text:
         class: Twig_Extensions_Extension_Text
@@ -12,7 +11,7 @@ services:
 
     volleyball_menu.menu_builder:
         class: Volleyball\UtilityBundle\Menu\MenuBuilder
-        arguments: ["@knp_menu.factory"]
+        arguments: ["@knp_menu.factory", "@security.context", "@translator"]
 
     volleyball_menu.menu.main:
         class: Knp\Menu\MenuItem
@@ -31,6 +30,51 @@ services:
         scope: request
         tags:
             - { name: knp_menu.menu, alias: nonauth }
+    
+#    volleyball_menu.menu.attendee:
+#        class: Knp\Menu\MenuItem
+#        factory_service: volleyball_menu.menu_builder
+#        factory_method: createAttendeeMenu
+#        arguments: [ "@request" ]
+#        scope: request
+#        tags:
+#            - { name: knp_menu.menu, alias: attendee } 
+#            
+#    volleyball_menu.menu.leader:
+#        class: Knp\Menu\MenuItem
+#        factory_service: volleyball_menu.menu_builder
+#        factory_method: createLeaderMenu
+#        arguments: [ "@request" ]
+#        scope: request
+#        tags:
+#            - { name: knp_menu.menu, alias: leader }
+#            
+#    volleyball_menu.menu.faculty:
+#        class: Knp\Menu\MenuItem
+#        factory_service: volleyball_menu.menu_builder
+#        factory_method: createFacultyMenu
+#        arguments: [ "@request" ]
+#        scope: request
+#        tags:
+#            - { name: knp_menu.menu, alias: faculty }
+#            
+#    volleyball_menu.menu.organization:
+#        class: Knp\Menu\MenuItem
+#        factory_service: volleyball_menu.menu_builder
+#        factory_method: createOrganizationMenu
+#        arguments: [ "@request" ]
+#        scope: request
+#        tags:
+#            - { name: knp_menu.menu, alias: organization }
+#            
+#    volleyball_menu.menu.admin:
+#        class: Knp\Menu\MenuItem
+#        factory_service: volleyball_menu.menu_builder
+#        factory_method: createAdminMenu
+#        arguments: [ "@request" ]
+#        scope: request
+#        tags:
+#            - { name: knp_menu.menu, alias: admin }
             
     volleyball_menu.voter.request:
         class: Volleyball\UtilityBundle\Menu\RequestVoter

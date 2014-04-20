@@ -7,7 +7,7 @@ vagrantfile-local:
         network:
             private_network: 10.0.0.200
             forwarded_port:
-                7IuQqkPagSGo:
+                z1hdJDfiJjoF:
                     host: '5735'
                     guest: '22'
         provider:
@@ -26,7 +26,7 @@ vagrantfile-local:
                     - '--hiera_config /vagrant/puphpet/puppet/hiera.yaml'
                     - '--parser future'
         synced_folder:
-            QpsyhWc8wNZP:
+            jv7z3eZsfPz4:
                 source: ../
                 target: /var/www/volleyball
                 nfs: 'true'
@@ -74,7 +74,7 @@ apache:
         - php
         - rewrite
     vhosts:
-        Fmoq0Xw1XeVe:
+        oT5KXrn0f9hN:
             servername: volleyball.dev
             serveraliases:
                 - volleyball.localhost
@@ -94,7 +94,7 @@ apache:
 nginx:
     install: 0
     vhosts:
-        yHa5S0FmNd2S:
+        6CF5nKYLTmLx:
             server_name: awesome.dev
             server_aliases:
                 - www.awesome.dev
@@ -114,10 +114,11 @@ php:
         php:
             - cli
             - curl
+            - geoip
             - intl
             - mcrypt
             - mysql
-            - geoip
+            - common
         pear:
             - PHP_CodeSniffer
             - PHP_Debug
@@ -125,11 +126,11 @@ php:
             - XML_MXML
         pecl:
             - pecl_http
+            - PDO_MYSQL
     ini:
         display_errors: On
         error_reporting: '-1'
         session.save_path: /var/lib/php/session
-        extension: mongo.so
     timezone: America/New_York
 xdebug:
     install: '1'
@@ -150,7 +151,7 @@ mysql:
     phpmyadmin: '1'
     adminer: 0
     databases:
-        WveGGp0Q6TA1:
+        vM3IBTjsn5bj:
             grant:
                 - ALL
             name: volleyball
@@ -175,7 +176,7 @@ mariadb:
     databases: {  }
     version: '10.0'
 mongodb:
-    install: '1'
+    install: 0
     settings:
         auth: 1
         port: '27017'

@@ -24,6 +24,7 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link href="{{ asset('/bundles/volleyballutility/css/volleyball.css') }}" rel="stylesheet">
     {% endblock %}
+    
 </head>
 <body>
 {% block body %}
@@ -34,7 +35,9 @@
                 <i class="fa fa-bookmark fa fa-large"></i><br />
                 <a href="{{ path( 'homepage') }}">{{ 'scheduling for summer camps' | title }}</a>
             </h1>
-            {% block menu %}{{ knp_menu_render('main') }}{% endblock %}
+            {% block menu %}
+                {{ knp_menu_render('main', { 'style': 'justified-pills', 'currentClass': 'active'}) }}
+            {% endblock %}
         </div>
         {% endblock %}
         {% block content %}{% endblock %}

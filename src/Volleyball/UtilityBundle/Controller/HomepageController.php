@@ -18,6 +18,9 @@ class HomepageController extends Controller
             ->getRepository('VolleyballUtilityBundle:Carousel')
             ->findOneBySlug('splash');
     
+        if (!$carousel) {
+            $carousel = array('items' => array());
+        }
 
         // last username entered by the user
         $lastUsername = (!$this->securityContext->isGranted('ROLE_USER')) ? '' : $this->securityContext->get(SecurityContext::LAST_USERNAME);

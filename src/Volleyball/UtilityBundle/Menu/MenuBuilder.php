@@ -56,7 +56,8 @@ class MenuBuilder extends BaseBuilder
      */
     public function createMainMenu(Request $request)
     {
-        if ($this->securityContext->isGranted('ROLE_AUTHENTICATED_ANONYMOUSLY')) {
+        if ($this->securityContext->isGranted('ROLE_AUTHENTICATED_ANONYMOUSLY') ||
+            !$this->securityContext->isGranted('ROLE_USER')) {
             return $this->createNonauthMenu($request);
         }
 
@@ -326,6 +327,94 @@ class MenuBuilder extends BaseBuilder
 
         return $menu;
     }
+    
+    /**
+     * @param Request $request request
+     * @return MenuItem 
+     */
+    public function courseMenu(Request $request)
+    {
+        $menu = $this->factory->createItem('courses');
+        $menu->setAttribute('dropdown', true)
+            ->setAttribute('icon', 'icon-list-alt');
+        
+        // course index
+        $menu->addChild(
+            'list courses',
+            array(
+                'route' => 'volleyball_course_index_by_organization',
+                'routeParamters' => array(
+                    'organization_slug' => $this->securityContext
+                        ->getUser()
+                        ->getActiveEnrollment()
+                        ->getOrganization()
+                        ->getSlug()
+                )
+            )
+        );
+        
+        // course search
+        $menu->addChild(
+            'find a course',
+            array(
+                'route' => 'volleyball__course_search',
+                'routeParamters' => array(
+                    'organization_slug' => $this->securityContext
+                        ->getUser()
+                        ->getActiveEnrollment()
+                        ->getOrganization()
+                        ->getSlug()
+                )
+            )
+        );
+        
+        // course add
+        if ($this->securityContext->isGranted('ROLE_ORGANIZATION_ADMIN')) {
+            $menu->addChild(
+                'add a course',
+                array(
+                    'route' => 'volleyball_course_new'
+                )
+            );
+        }
+        
+        return $menu;
+    }
+    
+    public function facilityMenu(Request $request)
+    {
+        $menu = $this->factory->createItem('facilities')
+            ->setAttribute('dropdown', true)
+            ->setAttribute('icon', 'icon-user');
+
+        // facility index
+        $menu->addChild(
+            'list facilities',
+            array(
+                'route' => 'volleyball_facility_index'
+            )
+        );
+        
+        // facility search
+        $menu->addChild(
+            'find a facility',
+            array(
+                'route' => 'volleyball_facility_search'
+            )
+        );
+        
+        // facility add
+        if ($this->securityContext->isGranted('ROLE_REGION_ADMIN')) {
+            $menu->addChild(
+                'add a facility',
+                array(
+                    'route' => 'volleyball_facility_new'
+                )
+            );
+        }
+        
+        return $menu;
+    }
 
     /**
      * @param Request $request request
@@ -334,8 +423,8 @@ class MenuBuilder extends BaseBuilder
     public function reportMenu(Request $request)
     {
         $menu = $this->factory->createItem('reports')
-                ->setAttribute('dropdown', true)
-                ->setAttribute('icon', 'icon-user');
+            ->setAttribute('dropdown', true)
+            ->setAttribute('icon', 'icon-user');
 
         return $menu;
     }
@@ -347,8 +436,8 @@ class MenuBuilder extends BaseBuilder
     public function profileMenu(Request $request)
     {
         $menu = $this->factory->createItem('profile')
-                ->setAttribute('dropdown', true)
-                ->setAttribute('icon', 'icon-user');
+            ->setAttribute('dropdown', true)
+            ->setAttribute('icon', 'icon-user');
 
         $menu->addChild(
             'view profile',
@@ -382,7 +471,7 @@ class MenuBuilder extends BaseBuilder
      */
     public function activeEnrollmentMenu(Request $request)
     {
-        $enrollment = $this->securityContext->getActiveEnrollment();
+        $enrollment = $this->securityContext->getToken()->getUser()->getActiveEnrollment();
 
         $label = array(
             $this->securityContext->getUsername().' @ '.

@@ -2,10 +2,12 @@
 
 {% block javascripts %}
     {{ parent() }}
+    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10-beta.1/js/jquery.dataTables.js"></script>
 {% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.0-beta.1/css/jquery.dataTables.css">
     <link href="{{ asset('/bundles/Volleyballutility/css/index.css') }}" rel="stylesheet" />
 {% endblock %}
 

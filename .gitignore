@@ -27,3 +27,4 @@ vendor/*
 # Spacehogs
 */cache/*
 */logs/*
+/.project

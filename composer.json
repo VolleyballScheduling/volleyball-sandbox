@@ -1,8 +1,14 @@
 {
-    "name": "VolleyballScheduling/VolleyballSandbox",
+    "name": "volleyball/sandbox",
     "license": "MIT",
     "type": "project",
     "description": "A summer camp (and alike) scheduling system.",
+    "authors": [
+        {
+            "name": "David Durost",
+            "homepage": "http://daviddurost.net"
+        }
+    ],
     "repositories": [
         {
             "type": "package",
@@ -30,66 +36,59 @@
         }
     ],
     "require": {
-        "php":                                                              ">=5.4",
+        "php":                                  ">=5.4",
 
-        "symfony/symfony":                                                  "~2.4",
-        "symfony/assetic-bundle":                                           "~2.3",
-        "symfony/swiftmailer-bundle":                                       "~2.3",
-        "symfony/monolog-bundle":                                           "~2.4",
-        "symfony/translation":                                                  "*",
-
-        "doctrine/orm":                                          ">=2.2.3,<2.4-dev",
-        "doctrine/doctrine-bundle":                                         "~1.2",
-        "doctrine/doctrine-fixtures-bundle":                           "dev-master",
-        "doctrine/data-fixtures":                                       "1.0.x-dev",
-
-        "twig/extensions":                                                  "1.0.*",
-
-        "incenteev/composer-parameter-handler":                              "~2.0",
-
-        "sensio/distribution-bundle":                                        "~2.3",
-        "sensio/framework-extra-bundle":                                     "~3.0",
-        "sensio/generator-bundle":                                           "~2.3",
-
-        "jms/aop-bundle":                                                 "1.0.1",
-        "jms/security-extra-bundle":                                    "1.5.*@dev",
-        "jms/di-extra-bundle":                                          "1.4.*@dev",
-        "jms/translation-bundle":                                           "1.1.*",
-
-        "gedmo/doctrine-extensions":                                    "2.3.x-dev",
-        "stof/doctrine-extensions-bundle":                               "~1.1@dev",
-
-        "friendsofsymfony/user-bundle":                                 "2.0.*@dev",
-        "pugx/multi-user-bundle":                                       "3.0.*@dev",
-
-        "whiteoctober/breadcrumbs-bundle":                             "dev-master",
-        "white-october/pagerfanta-bundle":                             "dev-master",
-        "pagerfanta/pagerfanta":                                       "dev-master",
-
-        "braincrafted/bootstrap-bundle":                                    "1.4.2",
-        "twitter/bootstrap":                                                "2.3.*",
-        "jquery/jquery":                                                    "2.1.0",
-        "leafo/lessphp":                                               "dev-master",
-
-        "vich/uploader-bundle":                                   "dev-master",
-
-        "knplabs/knp-menu":                                             "2.0.x-dev",
-        "knplabs/knp-menu-bundle":                                     "dev-master",
-       
-        "liip/imagine-bundle":                                          "dev-master"
+        "symfony/symfony":                      "~2.4",
+        "symfony/assetic-bundle":               "~2.3",
+        "symfony/swiftmailer-bundle":           "~2.3",
+        "symfony/monolog-bundle":               "~2.4",
+        "symfony/translation":                  "*",
+        "doctrine/orm":                         "~2.3",
+        "doctrine/doctrine-bundle":             "~1.2",
+        "doctrine/data-fixtures":               "1.0.x-dev",
+        "twig/extensions":                      "1.0.*",
+        "incenteev/composer-parameter-handler": "~2.0",
+        "sensio/distribution-bundle":           "~2.3",
+        "sensio/framework-extra-bundle":        "~3.0",
+        "sensio/generator-bundle":              "~2.3",
+        "jms/aop-bundle":                       "1.0.1",
+        "jms/security-extra-bundle":            "1.5.*@dev",
+        "jms/di-extra-bundle":                  "1.4.*@dev",
+        "jms/translation-bundle":               "1.1.*",
+        "gedmo/doctrine-extensions":            "2.3.x-dev",
+        "stof/doctrine-extensions-bundle":      "~1.1@dev",
+        "friendsofsymfony/user-bundle":         "2.0.*@dev",
+        "pugx/multi-user-bundle":               "3.0.*@dev",
+        "whiteoctober/breadcrumbs-bundle":      "dev-master",
+        "white-october/pagerfanta-bundle":      "dev-master",
+        "pagerfanta/pagerfanta":                "dev-master",
+        "braincrafted/bootstrap-bundle":        "1.4.2",
+        "twitter/bootstrap":                    "2.3.*",
+        "jquery/jquery":                        "2.1.0",
+        "leafo/lessphp":                        "dev-master",
+        "vich/uploader-bundle":                 "dev-master",
+        "knplabs/knp-menu":                     "2.0.x-dev",
+        "knplabs/knp-menu-bundle":              "dev-master",     
+        "liip/imagine-bundle":                  "dev-master"
     },
     "require-dev": {
-        "elao/web-profiler-extra-bundle":                             "dev-master",
-        "jms/debugging-bundle":                                       "dev-master"
+        "elao/web-profiler-extra-bundle":       "dev-master",
+        "jms/debugging-bundle":                 "dev-master",
+        "doctrine/doctrine-fixtures-bundle":    "2.2.*",
+        "fzaninotto/faker":                     "1.2.*",
+        "phpspec/phpspec":                      "~2.0",
+        "phpunit/phpunit":                      "~3.7"
     },
     "scripts": {
         "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ],
         "post-update-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
@@ -103,8 +102,8 @@
     "extra": {
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
-        "branch-alias": {
-            "dev-master": "1.0-dev"
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml"
         }
     },
     "autoload": {

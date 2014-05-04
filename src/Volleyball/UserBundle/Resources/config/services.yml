@@ -1,7 +1,0 @@
-parameters:
-#    Volleyball_user.example.class: Volleyball\UserBundle\Example
-
-services:
-#    Volleyball_user.example:
-#        class: %Volleyball_user.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]

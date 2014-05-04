@@ -1,0 +1,28 @@
+{
+    "name": "volleyball/vagrant",
+    "type": "library",
+    "description": "vagrant installation for the volleyball system.",
+    "keywords": [
+        "scheduling",
+        "scheduling system",
+        "vagrant"
+    ],
+    "homepage": "http://volleyball.daviddurost.net",
+    "license": "MIT",
+    "authors": [
+        {
+        "name": "David Durost",
+        "homepage": "http://daviddurost.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "require-dev": {
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.*-dev"
+        }
+    }
+}

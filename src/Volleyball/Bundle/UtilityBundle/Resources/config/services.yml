@@ -1,0 +1,42 @@
+services:
+    volleyball.listener.utility:
+        class: Volleyball\UtilityBundle\Listener\UtilityListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+        arguments: [ @service_container ]
+    
+    volleyball.repository.factory:
+        class: Doctrine\Common\Persistence\ObjectRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments:
+            - []
+            - '@service_container'
+    
+    volleyball.menu.builder:
+        class: Volleyball\UtilityBundle\Menu\MenuBuilder
+        arguments: ["@knp_menu.factory", "@security.context", "@translator"]
+
+    volleyball.menu.main:
+        class: Knp\Menu\MenuItem
+        factory_service: volleyball.menu.builder
+        factory_method: createMainMenu
+        arguments: [ "@request" ]
+        scope: request
+        tags:
+            - { name: knp_menu.menu, alias: main }
+
+    volleyball.menu.nonauth:
+        class: Knp\Menu\MenuItem
+        factory_service: volleyball.menu.builder
+        factory_method: createNonAuthMenu
+        arguments: [ "@request" ]
+        scope: request
+        tags:
+            - { name: knp_menu.menu, alias: nonauth }
+            
+    volleyball.menu.voter.request:
+        class: Volleyball\UtilityBundle\Menu\RequestVoter
+        arguments: [ "@service_container" ]
+        tags:
+            - { name: knp_menu.voter }

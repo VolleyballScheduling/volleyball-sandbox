@@ -1,0 +1,36 @@
+{
+    "name": "volleyball/course-bundle",
+    "type": "library",
+    "description": "course bundle utilizing the course component of the volleyball system.",
+    "keywords": [
+        "scheduling",
+        "scheduling system",
+        "course",
+        "vb class",
+        "class",
+        "requirement"
+    ],
+    "homepage": "http://volleyball.daviddurost.net",
+    "license": "MIT",
+    "authors": [
+        {
+        "name": "David Durost",
+        "homepage": "http://daviddurost.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Volleyball\\Bundle\\CourseBundle\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.*-dev"
+        }
+    }
+}

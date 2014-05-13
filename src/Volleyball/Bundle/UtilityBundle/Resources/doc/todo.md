@@ -1,3 +1,0 @@
-### Volleyball
-## To Do List
-

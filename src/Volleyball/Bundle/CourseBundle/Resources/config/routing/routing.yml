@@ -1,9 +1,0 @@
-courses:
-    resource: "@VolleyballCourseBundle/Resources/config/routing/course.yml"
-    prefix: /
-class:
-    resource: "@VolleyballCourseBundle/Resources/config/routing/class.yml"
-    prefix: /
-mb:
-    resource: "@VolleyballCourseBundle/Resources/config/routing/meritbadge.yml"
-    prefix: /

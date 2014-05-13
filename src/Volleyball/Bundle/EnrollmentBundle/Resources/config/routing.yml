@@ -1,3 +1,0 @@
-Volleyball_enrollment_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: VolleyballEnrollmentBundle:Default:index }

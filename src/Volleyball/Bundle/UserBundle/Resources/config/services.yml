@@ -1,7 +1,0 @@
-parameters:
-#    Volleyball_user.example.class: Volleyball\UserBundle\Example
-
-services:
-    volleyball.repositories.user:
-        class: Volleyball\Repositories\UserRepository
-        tags: [{ name:repository, alias: vb.repo.user }]

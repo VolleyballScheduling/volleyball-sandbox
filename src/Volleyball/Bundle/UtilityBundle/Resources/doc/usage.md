@@ -1,3 +1,0 @@
-### Volleyball
-## Usage
-

@@ -1,3 +1,0 @@
-Volleyball_course_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: VolleyballCourseBundle:Default:index }

@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "7adf921cdaeb6eaf194ba4de37642e1d",
+    "hash": "71226d21f8f5ec679dad3ff1a990a6de",
     "packages": [
         {
             "name": "braincrafted/bootstrap-bundle",
@@ -745,12 +745,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "e4c000a9b19096be0135d0773b56f7c757c93542"
+                "reference": "13c173ff60eef8e32c10f76225eacca00a430826"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/e4c000a9b19096be0135d0773b56f7c757c93542",
-                "reference": "e4c000a9b19096be0135d0773b56f7c757c93542",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/13c173ff60eef8e32c10f76225eacca00a430826",
+                "reference": "13c173ff60eef8e32c10f76225eacca00a430826",
                 "shasum": ""
             },
             "require": {
@@ -805,7 +805,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2014-04-08 21:21:16"
+            "time": "2014-05-07 23:51:03"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -813,12 +813,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
-                "reference": "47ed3e44d7e9b464c0d3d606a91a4651f8002a2b"
+                "reference": "6120bd01592a8d7d5dc48b51b7087cbc3e701e09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/47ed3e44d7e9b464c0d3d606a91a4651f8002a2b",
-                "reference": "47ed3e44d7e9b464c0d3d606a91a4651f8002a2b",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/6120bd01592a8d7d5dc48b51b7087cbc3e701e09",
+                "reference": "6120bd01592a8d7d5dc48b51b7087cbc3e701e09",
                 "shasum": ""
             },
             "require": {
@@ -885,7 +885,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2014-04-21 07:57:57"
+            "time": "2014-05-04 14:19:39"
         },
         {
             "name": "imagine/imagine",
@@ -1447,12 +1447,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpMenu.git",
-                "reference": "7d9bcdc29b49c3fc671a9c22885176f0ffe034c5"
+                "reference": "de645e813ddca4a1243db48bce5eaee8adb346a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/7d9bcdc29b49c3fc671a9c22885176f0ffe034c5",
-                "reference": "7d9bcdc29b49c3fc671a9c22885176f0ffe034c5",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/de645e813ddca4a1243db48bce5eaee8adb346a2",
+                "reference": "de645e813ddca4a1243db48bce5eaee8adb346a2",
                 "shasum": ""
             },
             "require": {
@@ -1503,7 +1503,7 @@
                 "menu",
                 "tree"
             ],
-            "time": "2014-04-08 20:25:33"
+            "time": "2014-05-01 19:50:28"
         },
         {
             "name": "knplabs/knp-menu-bundle",
@@ -1678,12 +1678,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/liip/LiipImagineBundle.git",
-                "reference": "d7d591321e98a87ff0dbd5751a8d92d1b229b163"
+                "reference": "e3a28ed6c6624b1d4164cbc14cbf4883acabcd8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liip/LiipImagineBundle/zipball/d7d591321e98a87ff0dbd5751a8d92d1b229b163",
-                "reference": "d7d591321e98a87ff0dbd5751a8d92d1b229b163",
+                "url": "https://api.github.com/repos/liip/LiipImagineBundle/zipball/e3a28ed6c6624b1d4164cbc14cbf4883acabcd8b",
+                "reference": "e3a28ed6c6624b1d4164cbc14cbf4883acabcd8b",
                 "shasum": ""
             },
             "require": {
@@ -1698,11 +1698,14 @@
                 "amazonwebservices/aws-sdk-for-php": "~1.0",
                 "aws/aws-sdk-php": "~2.4",
                 "doctrine/cache": "~1.1",
+                "doctrine/mongodb-odm": "1.0.*",
+                "doctrine/orm": "~2.3",
                 "ext-gd": "*",
                 "phpunit/phpunit": "~3.7",
                 "psr/log": "~1.0",
                 "symfony/browser-kit": "~2.3",
                 "symfony/console": "~2.3",
+                "symfony/form": "~2.3",
                 "symfony/yaml": "~2.3",
                 "twig/twig": "~1.0"
             },
@@ -1740,7 +1743,7 @@
                 "image",
                 "imagine"
             ],
-            "time": "2014-04-25 09:09:53"
+            "time": "2014-05-05 11:19:29"
         },
         {
             "name": "monolog/monolog",
@@ -1855,12 +1858,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/whiteoctober/Pagerfanta.git",
-                "reference": "c41473a84768ac18ec107033dbfa87229cdefafa"
+                "reference": "3ac597b089fed30f3904c3b145ac36d5df0845c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/whiteoctober/Pagerfanta/zipball/c41473a84768ac18ec107033dbfa87229cdefafa",
-                "reference": "c41473a84768ac18ec107033dbfa87229cdefafa",
+                "url": "https://api.github.com/repos/whiteoctober/Pagerfanta/zipball/3ac597b089fed30f3904c3b145ac36d5df0845c0",
+                "reference": "3ac597b089fed30f3904c3b145ac36d5df0845c0",
                 "shasum": ""
             },
             "require": {
@@ -1913,7 +1916,7 @@
                 "paginator",
                 "paging"
             ],
-            "time": "2014-03-14 07:32:00"
+            "time": "2014-05-06 16:27:14"
         },
         {
             "name": "phpoption/phpoption",
@@ -2009,12 +2012,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PUGX/PUGXMultiUserBundle.git",
-                "reference": "90a8b017b6c66e9300c3a15297f193d086360e02"
+                "reference": "1621deefcc346ed030cacf0aba2ec36a101cd52e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PUGX/PUGXMultiUserBundle/zipball/90a8b017b6c66e9300c3a15297f193d086360e02",
-                "reference": "90a8b017b6c66e9300c3a15297f193d086360e02",
+                "url": "https://api.github.com/repos/PUGX/PUGXMultiUserBundle/zipball/1621deefcc346ed030cacf0aba2ec36a101cd52e",
+                "reference": "1621deefcc346ed030cacf0aba2ec36a101cd52e",
                 "shasum": ""
             },
             "require": {
@@ -2052,7 +2055,7 @@
             "keywords": [
                 "user management multi user management"
             ],
-            "time": "2014-04-03 17:09:59"
+            "time": "2014-05-07 16:45:51"
         },
         {
             "name": "sensio/distribution-bundle",
@@ -2553,16 +2556,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.5.0-BETA1",
+            "version": "v2.5.0-BETA2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "2aea588ceba4cfc3e3ad39bfe9604bd025826993"
+                "reference": "aea2c6427e5df38526af7b3d5ef46fba3a2fde0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/2aea588ceba4cfc3e3ad39bfe9604bd025826993",
-                "reference": "2aea588ceba4cfc3e3ad39bfe9604bd025826993",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/aea2c6427e5df38526af7b3d5ef46fba3a2fde0c",
+                "reference": "aea2c6427e5df38526af7b3d5ef46fba3a2fde0c",
                 "shasum": ""
             },
             "require": {
@@ -2665,7 +2668,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-04-11 20:04:22"
+            "time": "2014-04-29 07:08:19"
         },
         {
             "name": "twig/extensions",
@@ -3577,20 +3580,22 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "3.7.35",
+            "version": "3.7.37",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "83f9537e46346f75ed6925441ac259453213c7cc"
+                "reference": "ae6cefd7cc84586a5ef27e04bae11ee940ec63dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/83f9537e46346f75ed6925441ac259453213c7cc",
-                "reference": "83f9537e46346f75ed6925441ac259453213c7cc",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/ae6cefd7cc84586a5ef27e04bae11ee940ec63dc",
+                "reference": "ae6cefd7cc84586a5ef27e04bae11ee940ec63dc",
                 "shasum": ""
             },
             "require": {
+                "ext-ctype": "*",
                 "ext-dom": "*",
+                "ext-json": "*",
                 "ext-pcre": "*",
                 "ext-reflection": "*",
                 "ext-spl": "*",
@@ -3606,9 +3611,6 @@
                 "pear-pear.php.net/pear": "1.9.4"
             },
             "suggest": {
-                "ext-json": "*",
-                "ext-simplexml": "*",
-                "ext-tokenizer": "*",
                 "phpunit/php-invoker": "~1.1"
             },
             "bin": [
@@ -3647,7 +3649,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-04-21 06:25:54"
+            "time": "2014-04-30 12:24:19"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

@@ -7,12 +7,12 @@ Online course management system primarily aimed at easing the logistics of sched
 
 1) Composer
 ```js
-"volleyball/volleyball-sandbox": "@dev"
+"volleyball/sandbox": "@dev"
 ```
 
 ```bash
 $ php composer.phar update "volleyball/volleyball-sandbox"
-
+```
 
 ###2. Configuration
 If you wish to use any of the geolocation features than you will need to supply a valid key and secret to access the geopoint api.  See the `paramters.yml` file.

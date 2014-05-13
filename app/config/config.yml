@@ -92,6 +92,7 @@ doctrine:
     
     orm:
         auto_generate_proxy_classes: %kernel.debug%
+        default_entity_manager: ~
         entity_managers:
             default:
                 auto_mapping: true
@@ -149,7 +150,7 @@ swiftmailer:
 fos_user:
     db_driver: orm
     firewall_name: main
-    user_class: Volleyball\UserBundle\Entity\User
+    user_class: Volleyball\Bundle\UserBundle\Entity\User
     service:
         user_manager: pugx_user_manager
 
@@ -183,58 +184,58 @@ pugx_multi_user:
     users:
         faculty:
             entity:
-                class: Volleyball\FacilityBundle\Entity\Faculty
+                class: Volleyball\Bundle\FacilityBundle\Entity\Faculty
             registration:
                 form:
-                    type: Volleyball\UserBundle\Form\Type\RegistrationFacultyFormType
+                    type: Volleyball\Bundle\UserBundle\Form\Type\RegistrationFacultyFormType
                     name: fos_user_registration_form
                     validation_groups: [Profile, Default, Faculty]
                 template: VolleyballUserBundle:Faculty:registration.form.html.twig
             profile:
                 form:
-                    type: Volleyball\UserBundle\Form\Type\ProfileFacultyFormType
+                    type: Volleyball\Bundle\UserBundle\Form\Type\ProfileFacultyFormType
                     name: fos_user_profile_form
                     validation_groups: [Profile, Default, Faculty]
         leader:
             entity:
-                class: Volleyball\PasselBundle\Entity\Leader
+                class: Volleyball\Bundle\PasselBundle\Entity\Leader
             registration:
                 form:
-                    type: Volleyball\UserBundle\Form\Type\RegistrationLeaderFormType
+                    type: Volleyball\Bundle\UserBundle\Form\Type\RegistrationLeaderFormType
                     name: fos_user_registration_form
                     validation_groups: [Profile, Default, Leader]
                 template: VolleyballUserBundle:Leader:registration.form.html.twig
             profile:
                 form:
-                    type: Volleyball\UserBundle\Form\Type\ProfileLeaderFormType
+                    type: Volleyball\Bundle\UserBundle\Form\Type\ProfileLeaderFormType
                     name: fos_user_profile_form
                     validation_groups: [Profile, Default, Leader]
         attendee:
             entity:
-                class: Volleyball\PasselBundle\Entity\Attendee
+                class: Volleyball\Bundle\PasselBundle\Entity\Attendee
             registration:
                 form:
-                    type: Volleyball\UserBundle\Form\Type\RegistrationAttendeeFormType
+                    type: Volleyball\Bundle\UserBundle\Form\Type\RegistrationAttendeeFormType
                     name: fos_user_registration_form
                     validation_groups: [Profile, Default, Attendee]
                 template: VolleyballUserBundle:Attendee:registration.form.html.twig
             profile:
                 form:
-                    type: Volleyball\UserBundle\Form\Type\ProfileAttendeeFormType
+                    type: Volleyball\Bundle\UserBundle\Form\Type\ProfileAttendeeFormType
                     name: fos_user_profile_form
                     validation_groups: [Profile, Default, Attendee]
         admin:
             entity:
-                class: Volleyball\UserBundle\Entity\Admin
+                class: Volleyball\Bundle\UserBundle\Entity\Admin
             registration:
                 form:
-                    type: Volleyball\UserBundle\Form\Type\RegistrationAdminFormType
+                    type: Volleyball\Bundle\UserBundle\Form\Type\RegistrationAdminFormType
                     name: fos_user_registration_form
                     validation_groups: [Profile, Default, Admin]
                 template: VolleyballUserBundle:Admin:registration.form.html.twig
             profile:
                 form:
-                    type: Volleyball\UserBundle\Form\Type\ProfileAdminFormType
+                    type: Volleyball\Bundle\UserBundle\Form\Type\ProfileAdminFormType
                     name: fos_user_profile_form
                     validation_groups: [Profile, Default]
 

@@ -1,21 +1,63 @@
 [submodule "vagrant"]
 	path = vagrant
-	url = https://github.com/PMSScheduling/vagrant.git
+	url = https://github.com/VolleyballScheduling/vagrant.git
 [submodule "fixtures-bundle"]
-        path = src/PMS/Bundle/FixturesBundle
-        url = http://github.com/PMSScheduling/FixturesBundle.git
+        path = src/Volleyball/Bundle/FixturesBundle
+        url = http://github.com/VolleyballScheduling/FixturesBundle.git
 [submodule "user"]
-        path = src/PMS/Component/User
-        url = http://github.com/PMSScheduling/User.git
+
+        path = src/Volleyball/Component/User
+        url = http://github.com/VolleyballScheduling/User.git
 [submodule "user-bundle"]
-        path = src/PMS/Bundle/UserBundle
-        url = http://github.com/PMSScheduling/UserBundle.git
+        path = src/Volleyball/Bundle/UserBundle
+        url = http://github.com/VolleyballScheduling/UserBundle.git
 [submodule "core"]
-        path = src/PMS/Component/Utility
-        url = http://github.com/PMSScheduling/Utility.git
+
+        path = src/Volleyball/Component/Utility
+        url = http://github.com/VolleyballScheduling/Utility.git
 [submodule "core-bundle"]
-        path = src/PMS/Bundle/UtilityBundle
-        url = http://github.com/PMSScheduling/UtilityBundle.git
+        path = src/Volleyball/Bundle/UtilityBundle
+        url = http://github.com/VolleyballScheduling/UtilityBundle.git
 [submodule "fixtures-bundle"]
-        path = src/PMS/Bundle/FixturesBundle
-        url = http://github.com/PMSScheduling/FixturesBundle.git
+        path = src/Volleyball/Bundle/FixturesBundle
+        url = http://github.com/VolleyballScheduling/FixturesBundle.git
+
+[submodule "enrollment"]
+        path = src/Volleyball/Component/Enrollment
+        url = http://github.com/VolleyballScheduling/Enrollment.git
+[submodule "enrollment-bundle"]
+        path = src/Volleyball/Bundle/EnrollmentBundle
+        url = http://github.com/VolleyballScheduling/EnrollmentBundle.git
+
+[submodule "organization"]
+        path = src/Volleyball/Component/Organization
+        url = http://github.com/VolleyballScheduling/Organization.git
+[submodule "organization-bundle"]
+        path = src/Volleyball/Bundle/OrganizationBundle
+        url = http://github.com/VolleyballScheduling/OrganizationBundle.git
+
+[submodule "passel"]
+        path = src/Volleyball/Component/Passel
+        url = http://github.com/VolleyballScheduling/Passel.git
+[submodule "passel-bundle"]
+        path = src/Volleyball/Bundle/PasselBundle
+        url = http://github.com/VolleyballScheduling/PasselBundle.git
+
+[submodule "report"]
+        path = src/Volleyball/Component/Report
+        url = http://github.com/VolleyballScheduling/Report.git
+[submodule "report-bundle"]
+        path = src/Volleyball/Bundle/ReportBundle
+        url = http://github.com/VolleyballScheduling/ReportBundle.git
+
+[submodule "resource-bundle"]
+        path = src/Volleyball/Bundle/ResourceBundle
+        url = http://github.com/VolleyballScheduling/ResourceBundle.git
+
+[submodule "course"]
+        path = src/Volleyball/Component/Course
+        url = http://github.com/VolleyballScheduling/Course.git
+[submodule "course-bundle"]
+        path = src/Volleyball/Bundle/CourseBundle
+        url = http://github.com/VolleyballScheduling/CourseBundle.git
+

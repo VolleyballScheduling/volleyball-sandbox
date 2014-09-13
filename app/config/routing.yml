@@ -1,43 +1,131 @@
-# Volleyball_attribute:
-#     resource: "@VolleyballAttributeBundle/Controller/"
-#     type:     annotation
-#     prefix:   "/{attr_path}/"
-
-Volleyball_course:
-    resource: "@VolleyballCourseBundle/Controller/"
+# Course Bundle
+volleyball_course:
+    resource: "@VolleyballCourseBundle/Controller/CourseController.php"
     type: annotation
     prefix: /courses
-
-Volleyball_enrollment:
-    resource: "@VolleyballEnrollmentBundle/Controller/"
+    
+volleyball_class:
+    resource: "@VolleyballCourseBundle/Controller/VbClassController.php"
     type: annotation
-    prefix: /enrollments
+    prefix: /classes
+    
+volleyball_requirement:
+    resource: "@VolleyballCourseBundle/Controller/RequirementController.php"
+    type: annotation
+    prefix: /requirements
+    
+# Enrollment Bundle
+volleyball_enrollment_attendee:
+    resource: "@VolleyballEnrollmentBundle/Controller/AttendeeEnrollmentController.php"
+    type: annotation
+    prefix: /enrollments/attendees
+    
+volleyball_enrollment_passel:
+    resource: "@VolleyballEnrollmentBundle/Controller/PasselEnrollmentController.php"
+    type: annotation
+    prefix: /enrollments/passels
+    
+volleyball_period:
+    resource: "@VolleyballEnrollmentBundle/Controller/PeriodController.php"
+    type: annotation
+    prefix: /periods
+    
+volleyball_week:
+    resource: "@VolleyballEnrollmentBundle/Controller/WeekController.php"
+    type: annotation
+    prefix: /weeks
+    
+volleyball_season:
+    resource: "@VolleyballEnrollmentBundle/Controller/SeasonController.php"
+    type: annotation
+    prefix: /seasons
 
-Volleyball_facility:
-    resource: "@VolleyballFacilityBundle/Controller/"
+# Facility Bundle
+volleyball_facility:
+    resource: "@VolleyballFacilityBundle/Controller/FacilityController.php"
     type: annotation
     prefix: /facilities
+    
+volleyball_department:
+    resource: "@VolleyballFacilityBundle/Controller/DepartmentController.php"
+    type: annotation
+    prefix: /departments
+    
+volleyball_faculty:
+    resource: "@VolleyballFacilityBundle/Controller/FacultyController.php"
+    type: annotation
+    prefix: /faculty
+    
+volleyball_quarters:
+    resource: "@VolleyballFacilityBundle/Controller/QuartersController.php"
+    type: annotation
+    prefix: /quarters
 
-Volleyball_organization:
-    resource: "@VolleyballOrganizationBundle/Controller/"
+# Organization Bundle
+volleyball_organization:
+    resource: "@VolleyballOrganizationBundle/Controller/OrganizationController.php"
     type: annotation
     prefix: /organizations
 
-Volleyball_passel:
-    resource: "@VolleyballPasselBundle/Controller/"
+volleyball_council:
+    resource: "@VolleyballOrganizationBundle/Controller/"
+    type: annotation
+    prefix: /councils
+    
+volleyball_region:
+    resource: "@VolleyballOrganizationBundle/Controller/RegionController.php"
+    type: annotation
+    prefix: /regions
+
+# Passel Bundle
+volleyball_passel:
+    resource: "@VolleyballPasselBundle/Controller/PasselController.php"
     type: annotation
     prefix: /passels
 
-Volleyball_report:
+volleyball_faction:
+    resource: "@VolleyballPasselBundle/Controller/FactionController.php"
+    type: annotation
+    prefix: /factions
+    
+volleyball_attendee:
+    resource: "@VolleyballPasselBundle/Controller/AttendeeController.php"
+    type: annotation
+    prefix: /attendees
+    
+volleyball_leader:
+    resource: "@VolleyballPasselBundle/Controller/LeaderController.php"
+    type: annotation
+    prefix: /leaders
+    
+volleyball_level:
+    resource: "@VolleyballPasselBundle/Controller/LevelController.php"
+    type: annotation
+    prefix: /levels
+    
+volleyball_attendee_position:
+    resource: "@VolleyballPasselBundle/Controller/PositionController.php"
+    type: annotation
+    prefix: /attendee-positions
+
+volleyball_passel_type:
+    resource: "@VolleyballPasselBundle/Controller/TypeController.php"
+    type: annotation
+    prefix: /passel-types
+
+# Report Bundle
+volleyball_report:
     resource: "@VolleyballReportBundle/Controller/"
     type: annotation
     prefix: /reports
 
-Volleyball_user:
-    resource: "@VolleyballUserBundle/Controller/"
+# User Bundle
+volleyball_user:
+    resource: "@VolleyballUserBundle/Controller/UserController.php"
     type: annotation
     prefix: /users
 
+# Misc
 homepage:
     pattern: /
     defaults: { _controller: VolleyballUtilityBundle:Homepage:index }
@@ -50,6 +138,7 @@ contact:
     pattern: /contact
     defaults: { _controller: VolleyballUtilityBundle:Homepage:contact }
 
+# FOS
 fos_user_security_login:
     pattern: /signin
     defaults: { _controller: FOSUserBundle:Security:login }
@@ -78,5 +167,6 @@ fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
 
+# Imagine
 _liip_imagine:
     resource: "@LiipImagineBundle/Resources/config/routing.xml"

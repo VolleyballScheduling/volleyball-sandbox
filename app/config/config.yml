@@ -266,3 +266,249 @@ white_october_breadcrumbs:
 #bc_bootstrap:
 #    assets_dir:  %kernel.root_dir%/../vendor/twitter/bootstrap
 #    jquery_path: %kernel.root_dir%/../vendor/jquery/jquery/jquery-1.9.1.js
+
+################################################################################
+## SYLIUS Configuration
+################################################################################
+sylius_resource:
+    resources:
+        # Passel
+        volleyball.passel:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\PasselBundle\Entity\Passel
+                interface: Volleyball\Component\Passel\Interfaces\PasselInterface
+                controller: Volleyball\Bundle\PasselBundle\Controller\PasselController
+                repository: Volleyball\Bundle\PasselBundle\Repository\PasselRepository
+        volleyball.faction:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\PasselBundle\Entity\Faction
+                interface: Volleyball\Component\Passel\Interfaces\FactionInterface
+                controller: Volleyball\Bundle\PasselBundle\Controller\FactionController
+                repository: Volleyball\Bundle\PasselBundle\Repository\FactionRepository
+        volleyball.attendee:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\PasselBundle\Entity\Attendee
+                interface: Volleyball\Component\Passel\Interfaces\AttendeeInterface
+                controller: Volleyball\Bundle\PasselBundle\Controller\AttendeeController
+                repository: Volleyball\Bundle\PasselBundle\Repository\AttendeeRepository
+        volleyball.passel_type:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\PasselBundle\Entity\Type
+                interface: Volleyball\Component\Passel\Interfaces\TypeInterface
+                controller: Volleyball\Bundle\PasselBundle\Controller\TypeController
+                repository: Volleyball\Bundle\PasselBundle\Repository\TypeRepository
+        volleyball.leader:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\PasselBundle\Entity\Leader
+                interface: Volleyball\Component\Passel\Interfaces\LeaderInterface
+                controller: Volleyball\Bundle\PasselBundle\Controller\LeaderController
+                repository: Volleyball\Bundle\PasselBundle\Repository\LeaderRepository
+        volleyball.level:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\PasselBundle\Entity\Level
+                interface: Volleyball\Component\Passel\Interfaces\LevelInterface
+                controller: Volleyball\Bundle\PasselBundle\Controller\LevelController
+                repository: Volleyball\Bundle\PasselBundle\Repository\LevelRepository
+        volleyball.attendee_position:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\PasselBundle\Entity\Position
+                interface: Volleyball\Component\Passel\Interfaces\PositionInterface
+                controller: Volleyball\Bundle\PasselBundle\Controller\PositionController
+                repository: Volleyball\Bundle\PasselBundle\Repository\PositionRepository
+        
+        # Facility
+        volleyball.facility:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\FacilityBundle\Entity\Facility
+                interface: Volleyball\Component\Facility\Interfaces\FacilityInterface
+                controller: Volleyball\Bundle\FacilityBundle\Controller\FacilityController
+                repository: Volleyball\Bundle\FacilityBundle\Repository\FacilityRepository
+        volleyball.department:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\FacilityBundle\Entity\Department
+                interface: Volleyball\Component\Facility\Interfaces\DepartmentInterface
+                controller: Volleyball\Bundle\FacilityBundle\Controller\DepartmentController
+                repository: Volleyball\Bundle\FacilityBundle\Repository\DepartmentRepository
+        volleyball.quarters:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\FacilityBundle\Entity\Quarters
+                interface: Volleyball\Component\Facility\Interfaces\QuartersInterface
+                controller: Volleyball\Bundle\FacilityBundle\Controller\QuartersController
+                repository: Volleyball\Bundle\FacilityBundle\Repository\QuartersRepository
+        volleyball.faculty:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\FacilityBundle\Entity\Faculty
+                interface: Volleyball\Component\Facility\Interfaces\FacultyInterface
+                controller: Volleyball\Bundle\FacilityBundle\Controller\FacultyController
+                repository: Volleyball\Bundle\FacilityBundle\Repository\FacultyRepository
+        volleyball.faculty_position:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\FacilityBundle\Entity\Position
+                interface: Volleyball\Component\Facility\Interfaces\PositionInterface
+                controller: Volleyball\Bundle\FacilityBundle\Controller\PositionController
+                repository: Volleyball\Bundle\FacilityBundle\Repository\PositionRepository
+        volleyball.faculty_quarters:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\FacilityBundle\Entity\FacultyQuarters
+                interface: Volleyball\Component\Facility\Interfaces\FacultyQuartersInterface
+                controller: Volleyball\Bundle\FacilityBundle\Controller\FacultyQuartersController
+                repository: Volleyball\Bundle\FacilityBundle\Repository\FacultyQuartersRepository
+        volleyball.passel_quarters:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\FacilityBundle\Entity\PasselQuarters
+                interface: Volleyball\Component\Facility\Interfaces\PasselQuartersInterface
+                controller: Volleyball\Bundle\FacilityBundle\Controller\PasselQuartersController
+                repository: Volleyball\Bundle\FacilityBundle\Repository\PasselQuartersRepository
+        
+        # Course
+        volleyball.course:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\CourseBundle\Entity\Course
+                interface: Volleyball\Component\Course\Interfaces\CourseInterface
+                controller: Volleyball\Bundle\CourseBundle\Controller\CourseController
+                repository: Volleyball\Bundle\CourseBundle\Repository\CourseRepository
+        volleyball.vb_class:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\CourseBundle\Entity\VbCass
+                interface: Volleyball\Component\Course\Interfaces\VbCassInterface
+                controller: Volleyball\Bundle\CourseBundle\Controller\VbCassController
+                repository: Volleyball\Bundle\CourseBundle\Repository\VbCassRepository
+        volleyball.requirement:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\CourseBundle\Entity\Requirement
+                interface: Volleyball\Component\Course\Interfaces\RequirementInterface
+                controller: Volleyball\Bundle\CourseBundle\Controller\RequirementController
+                repository: Volleyball\Bundle\CourseBundle\Repository\RequirementRepository
+        
+        # Organization
+        volleyball.organization:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\OrganizationBundle\Entity\Organization
+                interface: Volleyball\Component\Organization\Interfaces\OrganizationInterface
+                controller: Volleyball\Bundle\OrganizationBundle\Controller\OrganizationController
+                repository: Volleyball\Bundle\OrganizationBundle\Repository\OrganizationRepository
+        volleyball.council:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\OrganizationBundle\Entity\Council
+                interface: Volleyball\Component\Organization\Interfaces\CouncilInterface
+                controller: Volleyball\Bundle\OrganizationBundle\Controller\CouncilController
+                repository: Volleyball\Bundle\OrganizationBundle\Repository\CouncilRepository
+        volleyball.region:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\OrganizationBundle\Entity\Region
+                interface: Volleyball\Component\Organization\Interfaces\RegionInterface
+                controller: Volleyball\Bundle\OrganizationBundle\Controller\RegionController
+                repository: Volleyball\Bundle\OrganizationBundle\Repository\RegionRepository
+        
+        
+        # Enrollment
+        volleyball.active_enrollment:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\EnrollmentBundle\Entity\ActiveEnrollment
+                interface: Volleyball\Component\Enrollment\Interfaces\ActiveEnrollmentInterface
+                controller: Volleyball\Bundle\EnrollmentBundle\Controller\ActiveEnrollmentController
+                repository: Volleyball\Bundle\EnrollmentBundle\Repository\ActiveEnrollmentRepository
+        volleyball.attendee_enrollment:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\EnrollmentBundle\Entity\AttendeeEnrollment
+                interface: Volleyball\Component\Enrollment\Interfaces\AttendeeEnrollmentInterface
+                controller: Volleyball\Bundle\EnrollmentBundle\Controller\AttendeeEnrollmentController
+                repository: Volleyball\Bundle\EnrollmentBundle\Repository\AttendeeEnrollmentRepository
+        volleyball.facility_course:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\EnrollmentBundle\Entity\FacilityCourse
+                interface: Volleyball\Component\Enrollment\Interfaces\FacilityCourseInterface
+                controller: Volleyball\Bundle\EnrollmentBundle\Controller\FacilityCourseController
+                repository: Volleyball\Bundle\EnrollmentBundle\Repository\FacilityCourseRepository
+        volleyball.passel_enrollment:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\EnrollmentBundle\Entity\PasselEnrollment
+                interface: Volleyball\Component\Enrollment\Interfaces\PasselEnrollmentInterface
+                controller: Volleyball\Bundle\EnrollmentBundle\Controller\PasselEnrollmentController
+                repository: Volleyball\Bundle\EnrollmentBundle\Repository\PasselEnrollmentRepository
+        volleyball.season:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\EnrollmentBundle\Entity\Season
+                interface: Volleyball\Component\Enrollment\Interfaces\SeasonInterface
+                controller: Volleyball\Bundle\EnrollmentBundle\Controller\SeasonController
+                repository: Volleyball\Bundle\EnrollmentBundle\Repository\SeasonRepository
+        volleyball.week:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\EnrollmentBundle\Entity\Week
+                interface: Volleyball\Component\Enrollment\Interfaces\WeekInterface
+                controller: Volleyball\Bundle\EnrollmentBundle\Controller\WeekController
+                repository: Volleyball\Bundle\EnrollmentBundle\Repository\WeekRepository
+        volleyball.period:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\EnrollmentBundle\Entity\Period
+                interface: Volleyball\Component\Enrollment\Interfaces\PeriodInterface
+                controller: Volleyball\Bundle\EnrollmentBundle\Controller\PeriodController
+                repository: Volleyball\Bundle\EnrollmentBundle\Repository\PeriodRepository
+        
+        # User
+        volleyball.admin:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\UserBundle\Entity\Admin
+                interface: Volleyball\Component\User\Interfaces\AdminInterface
+                controller: Volleyball\Bundle\UserBundle\Controller\AdminController
+                repository: Volleyball\Bundle\UserBundle\Repository\AdminRepository
+        volleyball.user:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\UserBundle\Entity\User
+                interface: Volleyball\Component\User\Interfaces\UserInterface
+                controller: Volleyball\Bundle\UserBundle\Controller\UserController
+                repository: Volleyball\Bundle\UserBundle\Repository\UserRepository
+        
+        # Misc
+        volleyball.address:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\UtilityBundle\Entity\Address
+                interface: Volleyball\Component\Utility\Interfaces\AddressInterface
+                controller: Volleyball\Bundle\UtilityBundle\Controller\AddressController
+                repository: Volleyball\Bundle\UtilityBundle\Repository\AddressRepository
+        volleyball.carousel:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\UtilityBundle\Entity\Carousel
+                interface: Volleyball\Component\Utility\Interfaces\CarouselInterface
+                controller: Volleyball\Bundle\UtilityBundle\Controller\CarouselController
+                repository: Volleyball\Bundle\UtilityBundle\Repository\CarouselRepository
+        volleyball.carousel_item:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\UtilityBundle\Entity\CarouselItem
+                interface: Volleyball\Component\Utility\Interfaces\CarouselItemInterface
+                controller: Volleyball\Bundle\UtilityBundle\Controller\CarouselItemController
+                repository: Volleyball\Bundle\UtilityBundle\Repository\CarouselItemRepository
+        
+        # Reports

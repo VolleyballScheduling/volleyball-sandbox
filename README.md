@@ -37,3 +37,48 @@ Organization specific plugins (bundles) to extend the core functionality.
     - requirement entity extensions
     - custom reports
     - class balancing
+
+###6. Documentation
+- Users
+    - Admin
+    - Passel Leaders
+    - Attendees
+    - Faculty
+- Organizations
+    - Councils
+    - Regions
+- Facilities
+    - Departments
+    - Quarters
+    - Faculty Positions
+    - Faculty
+- Passels
+    - Passel Types
+    - Factions
+    - Attendee Positions
+    - Attendee Levels
+    - Attendees
+- Enrollments
+    - Passel Enrollments
+    - Attendee Enrollments
+- Seasons
+    - Weeks
+    - Periods
+- Courses
+    - Requirements
+    - Facility Courses
+    - Classes
+- Reports
+    - Alphabetical
+    - Master Schedule
+    - Attendee Schedule
+    - Custom Reports
+- Misc
+    - Addresses
+    - Menus
+    - Carousels
+    - Carousel Items
+    - Fixtures
+    - Services
+    - Configurations
+    

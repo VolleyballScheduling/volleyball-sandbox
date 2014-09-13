@@ -18,56 +18,35 @@
     <meta name="author" content="david durost">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    {% block stylesheets %}
-    <link href="http://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" type="text/css">
-    <link href="{{ asset('/bundles/volleyballutility/css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all"/>
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <link href="{{ asset('/bundles/volleyballutility/css/volleyball.css') }}" rel="stylesheet">
-    {% endblock %}
-    
-</head>
-<body>
-{% block body %}
-    <div class="container">
-        {% block header %}
-        <div class="masthead clearfix">
-            <h1 class="pull-left">
-                <i class="fa fa-bookmark fa fa-large"></i><br />
-                <a href="{{ path( 'homepage') }}">{{ 'scheduling for summer camps' | title }}</a>
-            </h1>
-            {% block menu %}
-                {{ knp_menu_render('main', { 'style': 'justified-pills', 'currentClass': 'active'}) }}
-            {% endblock %}
-        </div>
-        {% endblock %}
-        {% block content %}{% endblock %}
-    </div>
-    <div class="footer">
-    {% block footer %}
+    {{ block('stylesheets') }}
+    </head>
+    <body>
+    {% block body %}
         <div class="container">
-            <div class="row">
-                <div class="span4">
-                    <h3><i class="fa fa-coffee"></i>&nbsp;Something</h3>
-                    <p>Stuff goes here.</p>
-                </div>
-                <div class="span4">
-                    <h3><i class="fa fa-sitemap"></i>&nbsp;Sitemap</h3>
-                    <p></p>
-                </div>
-                <div class="span4">
-                    <h3><i class="fa fa-envelope"></i>&nbsp;Contact</h3>
-                    <p>
-                        <strong>Email:</strong> <a href="">dave[at]daviddurost[dot]net</a>
-                    </p>
-                </div>
-            </div>
+            {{ block('header') }}
+            {{ block('content') }}
         </div>
+
+        {{ block('footer') }}
+
+        {{ block('javascripts') }}
     {% endblock %}
-    </div>
-    {% block javascripts %}
-    <script src="{{ asset('/bundles/volleyballutility/js/jquery.js') }}"></script>
-    <script src="{{ asset('/bundles/volleyballutility/js/bootstrap.js') }}"></script>
-    {% endblock %}
-{% endblock %}
-</body>
+    </body>
 </html>
+
+{% block header %}{% endblock %}
+{% block content %}{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block stylesheets %}
+    <link href="http://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ asset('/bundles/volleyballresource/css/volleyball.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+{% endblock %}

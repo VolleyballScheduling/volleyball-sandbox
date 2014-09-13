@@ -61,3 +61,10 @@
         path = src/Volleyball/Bundle/CourseBundle
         url = http://github.com/VolleyballScheduling/CourseBundle.git
 
+
+[submodule "facility"]
+        path = src/Volleyball/Component/Facility
+        url = http://github.com/VolleyballScheduling/Facility.git
+[submodule "facility-bundle"]
+        path = src/Volleyball/Bundle/FacilityBundle
+        url = http://github.com/VolleyballScheduling/FacilityBundle.git

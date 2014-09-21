@@ -47,7 +47,6 @@
         
         "jms/aop-bundle":                       "1.0.1",
         "jms/security-extra-bundle":            "1.5.*@dev",
-        "jms/di-extra-bundle":                  "1.4.*@dev",
         "jms/translation-bundle":               "1.1.*",
         
         "gedmo/doctrine-extensions":            "2.3.x-dev",

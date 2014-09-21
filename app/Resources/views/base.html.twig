@@ -34,15 +34,25 @@
     </body>
 </html>
 
-{% block header %}{% endblock %}
+{% block header %}
+    {{ block('menu') }}
+    {{ block('breadcrumbs') }}
+{% endblock %}
+
+{% block menu %}{% endblock %}
+
+{% block breadcrumbs %}
+        {% include 'VolleyballResourceBundle:Base:breadcrumbs.html.twig' %}
+{% endblock %}
+
 {% block content %}{% endblock %}
 {% block footer %}{% endblock %}
 
 {% block stylesheets %}
-    <link href="http://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ asset('/bundles/volleyballresource/css/volleyball.css') }}" rel="stylesheet">
+    <link href="{{ asset('/bundles/volleyballresource/css/menu.css') }}" rel="stylesheet">
 {% endblock %}
 
 {% block javascripts %}

@@ -17,6 +17,7 @@ volleyball.sublime-*
 # Vagrant
 /vagrant/.vagrant
 vagrant/Personalization
+.vagrant*
 
 # Misc
 *~

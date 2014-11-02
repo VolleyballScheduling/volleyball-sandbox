@@ -1,0 +1,4 @@
+destination: src/Volleyball/Bundle/ResourceBundle/Resources/doc
+source:
+	- src/
+	

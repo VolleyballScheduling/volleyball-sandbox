@@ -74,8 +74,66 @@ assetic:
             output: js/bootstrap.js
         jquery:
             inputs:
-                - %kernel.root_dir%/../vendor/jquery/jquery/jquery-1.9.1.js
+                - %kernel.root_dir%/../vendor/jquery/jquery/jquery-2.1.1.min.js
             output: js/jquery.js
+        jquery_ui:
+                inputs:
+                - "@jquery"
+        bootstrap:
+            inputs:
+                - "@jquery"
+                - "@bootstrap_css"
+                - "@bootstrap_js"
+        form:
+            inputs:
+                - "@jquery_ui"
+                - "@VolleyballResourceBundle/Resources/public/css/form.css"
+                - "@VolleyballResourceBundle/Resources/public/js/form.js"
+        datatable:
+            inputs:
+                - "@VolleyballResourceBundle/Resources/public/css/datatable.css"
+        volleyball:
+            inputs:
+                - "@jquery"
+                - "@bootstrap"
+                - "@VolleyballResourceBundle/Resources/public/css/volleyball.css"
+                - "@VolleyballResourceBundle/Resources/public/js/volleyball.js"
+            filters:
+                - cssrewrite
+        auth:
+            inputs:
+                - "@jquery"
+                - "@form"
+                - "@VolleyballResourceBundle/Resources/public/css/auth.css"
+                - "@VolleyballResourceBundle/Resources/public/js/auth.js"
+        registration:
+            inputs:
+                - "@auth"
+                - "@VolleyballResourceBundle/Resources/public/css/registration.css"
+                - "@VolleyballResourceBundle/Resources/public/js/registration.js"
+        vb_index:
+            inputs:
+                - "@volleyball"
+                - "@datatable"
+                - "@VolleyballResourceBundle/Resources/public/css/index.css"
+                - "@VolleyballResourceBundle/Resources/public/js/index.js"
+        vb_show:
+            inputs:
+                - "@volleyball"
+                - "@VolleyballResourceBundle/Resources/public/css/show.css"
+                - "@VolleyballResourceBundle/Resources/public/js/show.js"
+        vb_new:
+            inputs:
+                - "@volleyball"
+                - "@form"
+                - "@VolleyballResourceBundle/Resources/public/css/new.css"
+                - "@VolleyballResourceBundle/Resources/public/js/new.js"
+        vb_edit:
+            inputs:
+                - "@volleyball"
+                - "@form"
+                - "@VolleyballResourceBundle/Resources/public/css/edit.css"
+                - "@VolleyballResourceBundle/Resources/public/js/edit.js"                
 
 #####################################################################################
 ## Doctrine Configuration
@@ -187,13 +245,13 @@ pugx_multi_user:
                 class: Volleyball\Bundle\FacilityBundle\Entity\Faculty
             registration:
                 form:
-                    type: Volleyball\Bundle\UserBundle\Form\Type\RegistrationFacultyFormType
+                    type: Volleyball\Bundle\ResourceBundle\Form\Type\RegistrationFacultyFormType
                     name: fos_user_registration_form
                     validation_groups: [Profile, Default, Faculty]
-                template: VolleyballUserBundle:Faculty:registration.form.html.twig
+                template: VolleyballResourceBundle:Form:registration.faculty.html.twig
             profile:
                 form:
-                    type: Volleyball\Bundle\UserBundle\Form\Type\ProfileFacultyFormType
+                    type: Volleyball\Bundle\ResourceBundle\Form\Type\ProfileFacultyFormType
                     name: fos_user_profile_form
                     validation_groups: [Profile, Default, Faculty]
         leader:
@@ -201,13 +259,13 @@ pugx_multi_user:
                 class: Volleyball\Bundle\PasselBundle\Entity\Leader
             registration:
                 form:
-                    type: Volleyball\Bundle\UserBundle\Form\Type\RegistrationLeaderFormType
+                    type: Volleyball\Bundle\ResourceBundle\Form\Type\RegistrationLeaderFormType
                     name: fos_user_registration_form
                     validation_groups: [Profile, Default, Leader]
-                template: VolleyballUserBundle:Leader:registration.form.html.twig
+                template: VolleyballResourceBundle:Form:registration.leader.html.twig
             profile:
                 form:
-                    type: Volleyball\Bundle\UserBundle\Form\Type\ProfileLeaderFormType
+                    type: Volleyball\Bundle\ResourceBundle\Form\Type\ProfileLeaderFormType
                     name: fos_user_profile_form
                     validation_groups: [Profile, Default, Leader]
         attendee:
@@ -215,10 +273,10 @@ pugx_multi_user:
                 class: Volleyball\Bundle\PasselBundle\Entity\Attendee
             registration:
                 form:
-                    type: Volleyball\Bundle\UserBundle\Form\Type\RegistrationAttendeeFormType
+                    type: Volleyball\Bundle\ResourceBundle\Form\Type\RegistrationAttendeeFormType
                     name: fos_user_registration_form
                     validation_groups: [Profile, Default, Attendee]
-                template: VolleyballUserBundle:Attendee:registration.form.html.twig
+                template: VolleyballResourceBundle:Form:registration.attendee.html.twig
             profile:
                 form:
                     type: Volleyball\Bundle\UserBundle\Form\Type\ProfileAttendeeFormType
@@ -232,10 +290,10 @@ pugx_multi_user:
                     type: Volleyball\Bundle\UserBundle\Form\Type\RegistrationAdminFormType
                     name: fos_user_registration_form
                     validation_groups: [Profile, Default, Admin]
-                template: VolleyballUserBundle:Admin:registration.form.html.twig
+                template: VolleyballResourceBundle:Form:registration.admin.html.twig
             profile:
                 form:
-                    type: Volleyball\Bundle\UserBundle\Form\Type\ProfileAdminFormType
+                    type: Volleyball\Bundle\ResoruceBundle\Form\Type\ProfileAdminFormType
                     name: fos_user_profile_form
                     validation_groups: [Profile, Default]
 
@@ -512,3 +570,10 @@ sylius_resource:
                 repository: Volleyball\Bundle\UtilityBundle\Repository\CarouselItemRepository
         
         # Reports
+        volleyball.report:
+            driver: doctrine/orm
+            classes:
+                model: Volleyball\Bundle\ReportBundle\Entity\Report
+                interface: Volleyball\Component\Report\Interfaces\ReportInterface
+                controller: Volleyball\Bundle\ReportBundle\Controller\ReportController
+                repository: Volleyball\Bundle\ReportBundle\Repository\ReportRepository

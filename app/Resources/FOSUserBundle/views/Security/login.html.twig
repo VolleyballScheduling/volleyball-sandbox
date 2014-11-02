@@ -4,6 +4,7 @@
   {{ parent() }}
 <link rel="stylesheet" href="{{ asset('/css/form.css.php') }}" />
 {% endblock %}
+
 {% block javascripts %}
   {{ parent() }}
 <script src="{{ asset('/js/jquery.infieldlabel.min.js') }}" type="text/javascript" ></script>
@@ -40,14 +41,5 @@
     <input type="submit" id="_submit" name="_submit" value="sign in &raquo;" class="greenButton" />
   </p>
 </form>
-</div>
-<div id="signin-quicklinks-wrapper">
-  <h2>{{ 'sign in with' | title }}</h2>
-  <ul id="quicklinks">
-    <li class="quicklink" id="facebook"><a href="{{ path('facebook_check') }}"><img src="{{ asset('/images/social/connect/facebook.png') }}" /></a>{# {{ facebook_login_button({'autologoutlink': true, 'label': 'Sign In With Facebook', return_uri: path('fos_user_security_check') }) }} #}</li>
-    <li class="quicklink" id="twitter"><a href="#"><img src="{{ asset('/images/social/connect/twitter.png') }}" /></a></li>
-    <li class="quicklink" id="google"><a href="#"><img src="{{ asset('/images/social/connect/google.png') }}" /></a></li>
-    <li class="quicklink" id="linkedin"><a href="#"><img src="{{ asset('/images/social/connect/linkedin.png') }}" /></a></li>
-  </ul>
 </div>
 {% endblock %}

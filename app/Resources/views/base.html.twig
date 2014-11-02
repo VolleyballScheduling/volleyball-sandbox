@@ -18,45 +18,64 @@
     <meta name="author" content="david durost">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    {{ block('stylesheets') }}
+    {% block stylesheets %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="{{ asset('/bundles/volleyballresource/css/volleyball.css') }}" rel="stylesheet" />
+        <link href="{{ asset('/bundles/volleyballresource/css/menu.css') }}" rel="stylesheet" />
+    {% endblock %}
     </head>
     <body>
     {% block body %}
         <div class="container">
-            {{ block('header') }}
-            {{ block('content') }}
+            <div class="row">
+            {% block header %}
+                <div class="container">
+                    <div class="row" id="menu">
+                    {% block menu %}
+                        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="{{ path( 'homepage') }}">{{ 'volleyball scheduling system' | title }}</a>
+                                </div>
+                                {{ knp_menu_render('main') }}
+                            </div>
+                        </nav>
+                    {% endblock %}
+                    </div>
+                    <div class="row" id="breadcrumbs">
+                    {% block breadcrumbs %}
+                        {{ wo_render_breadcrumbs() }}
+                    {% endblock %}
+                    </div>
+                </div>
+            {% endblock %}
+            </div>
+            <div class="row" id="content">
+            {% block content %}{% endblock %}
+            </div>
         </div>
 
-        {{ block('footer') }}
+        {% block footer %}
+        <div class="container" id="footer">
+            <div class="row">
+                {#{{ knp_menu_render('main') }}#}
+            </div>
+        </div>
+        {% endblock %}
 
-        {{ block('javascripts') }}
+        {% block javascripts %}
+            <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+            <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        {% endblock %}
     {% endblock %}
     </body>
 </html>
-
-{% block header %}
-    {{ block('menu') }}
-    {{ block('breadcrumbs') }}
-{% endblock %}
-
-{% block menu %}{% endblock %}
-
-{% block breadcrumbs %}
-        {% include 'VolleyballResourceBundle:Base:breadcrumbs.html.twig' %}
-{% endblock %}
-
-{% block content %}{% endblock %}
-{% block footer %}{% endblock %}
-
-{% block stylesheets %}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="{{ asset('/bundles/volleyballresource/css/volleyball.css') }}" rel="stylesheet">
-    <link href="{{ asset('/bundles/volleyballresource/css/menu.css') }}" rel="stylesheet">
-{% endblock %}
-
-{% block javascripts %}
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-{% endblock %}

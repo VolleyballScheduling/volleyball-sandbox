@@ -211,6 +211,9 @@ fos_user:
     user_class: Volleyball\Bundle\UserBundle\Entity\User
     service:
         user_manager: pugx_user_manager
+    registration:
+        form:
+            type: user_registration
 
 ################################################################################
 ## JMS Configuration
@@ -245,13 +248,13 @@ pugx_multi_user:
                 class: Volleyball\Bundle\FacilityBundle\Entity\Faculty
             registration:
                 form:
-                    type: Volleyball\Bundle\ResourceBundle\Form\Type\RegistrationFacultyFormType
+                    type: Volleyball\Bundle\FacilityBundle\Form\Type\FacultyRegistrationFormType
                     name: fos_user_registration_form
                     validation_groups: [Profile, Default, Faculty]
-                template: VolleyballResourceBundle:Form:registration.faculty.html.twig
+                template: VolleyballResourceBundle:Faculty:registration.html.twig
             profile:
                 form:
-                    type: Volleyball\Bundle\ResourceBundle\Form\Type\ProfileFacultyFormType
+                    type: Volleyball\Bundle\FacilityBundle\Form\Type\ProfileFacultyFormType
                     name: fos_user_profile_form
                     validation_groups: [Profile, Default, Faculty]
         leader:
@@ -259,13 +262,13 @@ pugx_multi_user:
                 class: Volleyball\Bundle\PasselBundle\Entity\Leader
             registration:
                 form:
-                    type: Volleyball\Bundle\ResourceBundle\Form\Type\RegistrationLeaderFormType
+                    type: Volleyball\Bundle\PasselBundle\Form\Type\LeaderRegistrationFormType
                     name: fos_user_registration_form
                     validation_groups: [Profile, Default, Leader]
-                template: VolleyballResourceBundle:Form:registration.leader.html.twig
+                template: VolleyballResourceBundle:Leader:registration.html.twig
             profile:
                 form:
-                    type: Volleyball\Bundle\ResourceBundle\Form\Type\ProfileLeaderFormType
+                    type: Volleyball\Bundle\PasselBundle\Form\Type\ProfileLeaderFormType
                     name: fos_user_profile_form
                     validation_groups: [Profile, Default, Leader]
         attendee:
@@ -273,13 +276,13 @@ pugx_multi_user:
                 class: Volleyball\Bundle\PasselBundle\Entity\Attendee
             registration:
                 form:
-                    type: Volleyball\Bundle\ResourceBundle\Form\Type\RegistrationAttendeeFormType
+                    type: Volleyball\Bundle\PasselBundle\Form\Type\AttendeeRegistrationFormType
                     name: fos_user_registration_form
                     validation_groups: [Profile, Default, Attendee]
-                template: VolleyballResourceBundle:Form:registration.attendee.html.twig
+                template: VolleyballResourceBundle:Attendee:registration.html.twig
             profile:
                 form:
-                    type: Volleyball\Bundle\UserBundle\Form\Type\ProfileAttendeeFormType
+                    type: Volleyball\Bundle\PasselBundle\Form\Type\ProfileAttendeeFormType
                     name: fos_user_profile_form
                     validation_groups: [Profile, Default, Attendee]
         admin:
@@ -287,7 +290,7 @@ pugx_multi_user:
                 class: Volleyball\Bundle\UserBundle\Entity\Admin
             registration:
                 form:
-                    type: Volleyball\Bundle\UserBundle\Form\Type\RegistrationAdminFormType
+                    type: Volleyball\Bundle\ResourceBundle\Form\Type\RegistrationFormType
                     name: fos_user_registration_form
                     validation_groups: [Profile, Default, Admin]
                 template: VolleyballResourceBundle:Form:registration.admin.html.twig
@@ -333,6 +336,7 @@ sylius_resource:
         # Passel
         volleyball.passel:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:Passel
             classes:
                 model: Volleyball\Bundle\PasselBundle\Entity\Passel
                 interface: Volleyball\Component\Passel\Interfaces\PasselInterface
@@ -340,6 +344,7 @@ sylius_resource:
                 repository: Volleyball\Bundle\PasselBundle\Repository\PasselRepository
         volleyball.faction:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:Faction
             classes:
                 model: Volleyball\Bundle\PasselBundle\Entity\Faction
                 interface: Volleyball\Component\Passel\Interfaces\FactionInterface
@@ -347,6 +352,7 @@ sylius_resource:
                 repository: Volleyball\Bundle\PasselBundle\Repository\FactionRepository
         volleyball.attendee:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:Attendee
             classes:
                 model: Volleyball\Bundle\PasselBundle\Entity\Attendee
                 interface: Volleyball\Component\Passel\Interfaces\AttendeeInterface
@@ -354,6 +360,7 @@ sylius_resource:
                 repository: Volleyball\Bundle\PasselBundle\Repository\AttendeeRepository
         volleyball.passel_type:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:PasselType
             classes:
                 model: Volleyball\Bundle\PasselBundle\Entity\Type
                 interface: Volleyball\Component\Passel\Interfaces\TypeInterface
@@ -361,6 +368,7 @@ sylius_resource:
                 repository: Volleyball\Bundle\PasselBundle\Repository\TypeRepository
         volleyball.leader:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:Leader
             classes:
                 model: Volleyball\Bundle\PasselBundle\Entity\Leader
                 interface: Volleyball\Component\Passel\Interfaces\LeaderInterface
@@ -368,6 +376,7 @@ sylius_resource:
                 repository: Volleyball\Bundle\PasselBundle\Repository\LeaderRepository
         volleyball.level:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:Level
             classes:
                 model: Volleyball\Bundle\PasselBundle\Entity\Level
                 interface: Volleyball\Component\Passel\Interfaces\LevelInterface
@@ -375,6 +384,7 @@ sylius_resource:
                 repository: Volleyball\Bundle\PasselBundle\Repository\LevelRepository
         volleyball.attendee_position:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:AttendeePosition
             classes:
                 model: Volleyball\Bundle\PasselBundle\Entity\Position
                 interface: Volleyball\Component\Passel\Interfaces\PositionInterface
@@ -384,6 +394,7 @@ sylius_resource:
         # Facility
         volleyball.facility:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:Facility
             classes:
                 model: Volleyball\Bundle\FacilityBundle\Entity\Facility
                 interface: Volleyball\Component\Facility\Interfaces\FacilityInterface
@@ -391,6 +402,7 @@ sylius_resource:
                 repository: Volleyball\Bundle\FacilityBundle\Repository\FacilityRepository
         volleyball.department:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:Department
             classes:
                 model: Volleyball\Bundle\FacilityBundle\Entity\Department
                 interface: Volleyball\Component\Facility\Interfaces\DepartmentInterface
@@ -398,6 +410,7 @@ sylius_resource:
                 repository: Volleyball\Bundle\FacilityBundle\Repository\DepartmentRepository
         volleyball.quarters:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:Quarters
             classes:
                 model: Volleyball\Bundle\FacilityBundle\Entity\Quarters
                 interface: Volleyball\Component\Facility\Interfaces\QuartersInterface
@@ -405,6 +418,7 @@ sylius_resource:
                 repository: Volleyball\Bundle\FacilityBundle\Repository\QuartersRepository
         volleyball.faculty:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:Faculty
             classes:
                 model: Volleyball\Bundle\FacilityBundle\Entity\Faculty
                 interface: Volleyball\Component\Facility\Interfaces\FacultyInterface
@@ -412,6 +426,7 @@ sylius_resource:
                 repository: Volleyball\Bundle\FacilityBundle\Repository\FacultyRepository
         volleyball.faculty_position:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:FaculityPosition
             classes:
                 model: Volleyball\Bundle\FacilityBundle\Entity\Position
                 interface: Volleyball\Component\Facility\Interfaces\PositionInterface
@@ -419,6 +434,7 @@ sylius_resource:
                 repository: Volleyball\Bundle\FacilityBundle\Repository\PositionRepository
         volleyball.faculty_quarters:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:Quarters
             classes:
                 model: Volleyball\Bundle\FacilityBundle\Entity\FacultyQuarters
                 interface: Volleyball\Component\Facility\Interfaces\FacultyQuartersInterface
@@ -426,6 +442,7 @@ sylius_resource:
                 repository: Volleyball\Bundle\FacilityBundle\Repository\FacultyQuartersRepository
         volleyball.passel_quarters:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:Quarters
             classes:
                 model: Volleyball\Bundle\FacilityBundle\Entity\PasselQuarters
                 interface: Volleyball\Component\Facility\Interfaces\PasselQuartersInterface
@@ -435,6 +452,7 @@ sylius_resource:
         # Course
         volleyball.course:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:Course
             classes:
                 model: Volleyball\Bundle\CourseBundle\Entity\Course
                 interface: Volleyball\Component\Course\Interfaces\CourseInterface
@@ -442,13 +460,15 @@ sylius_resource:
                 repository: Volleyball\Bundle\CourseBundle\Repository\CourseRepository
         volleyball.vb_class:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:VbClass
             classes:
-                model: Volleyball\Bundle\CourseBundle\Entity\VbCass
-                interface: Volleyball\Component\Course\Interfaces\VbCassInterface
-                controller: Volleyball\Bundle\CourseBundle\Controller\VbCassController
-                repository: Volleyball\Bundle\CourseBundle\Repository\VbCassRepository
+                model: Volleyball\Bundle\CourseBundle\Entity\VbClass
+                interface: Volleyball\Component\Course\Interfaces\VbClassInterface
+                controller: Volleyball\Bundle\CourseBundle\Controller\VbClassController
+                repository: Volleyball\Bundle\CourseBundle\Repository\VbClassRepository
         volleyball.requirement:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:Requirement
             classes:
                 model: Volleyball\Bundle\CourseBundle\Entity\Requirement
                 interface: Volleyball\Component\Course\Interfaces\RequirementInterface
@@ -458,6 +478,7 @@ sylius_resource:
         # Organization
         volleyball.organization:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:Organization
             classes:
                 model: Volleyball\Bundle\OrganizationBundle\Entity\Organization
                 interface: Volleyball\Component\Organization\Interfaces\OrganizationInterface
@@ -465,6 +486,7 @@ sylius_resource:
                 repository: Volleyball\Bundle\OrganizationBundle\Repository\OrganizationRepository
         volleyball.council:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:Council
             classes:
                 model: Volleyball\Bundle\OrganizationBundle\Entity\Council
                 interface: Volleyball\Component\Organization\Interfaces\CouncilInterface
@@ -472,6 +494,7 @@ sylius_resource:
                 repository: Volleyball\Bundle\OrganizationBundle\Repository\CouncilRepository
         volleyball.region:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:Region
             classes:
                 model: Volleyball\Bundle\OrganizationBundle\Entity\Region
                 interface: Volleyball\Component\Organization\Interfaces\RegionInterface
@@ -482,6 +505,7 @@ sylius_resource:
         # Enrollment
         volleyball.active_enrollment:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:ActiveEnrollment
             classes:
                 model: Volleyball\Bundle\EnrollmentBundle\Entity\ActiveEnrollment
                 interface: Volleyball\Component\Enrollment\Interfaces\ActiveEnrollmentInterface
@@ -489,13 +513,23 @@ sylius_resource:
                 repository: Volleyball\Bundle\EnrollmentBundle\Repository\ActiveEnrollmentRepository
         volleyball.attendee_enrollment:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:AttendeeEnrollment
             classes:
                 model: Volleyball\Bundle\EnrollmentBundle\Entity\AttendeeEnrollment
                 interface: Volleyball\Component\Enrollment\Interfaces\AttendeeEnrollmentInterface
                 controller: Volleyball\Bundle\EnrollmentBundle\Controller\AttendeeEnrollmentController
                 repository: Volleyball\Bundle\EnrollmentBundle\Repository\AttendeeEnrollmentRepository
+        volleyball.attendee_class_enrollment:
+            driver: doctrine/orm
+            templates: VolleyballResourceBundle:AttendeeClassEnrollment
+            classes:
+                model: Volleyball\Bundle\EnrollmentBundle\Entity\AttendeeClassEnrollment
+                interface: Volleyball\Component\Enrollment\Interfaces\AttendeeClassEnrollmentInterface
+                controller: Volleyball\Bundle\EnrollmentBundle\Controller\AttendeeClassEnrollmentController
+                repository: Volleyball\Bundle\EnrollmentBundle\Repository\AttendeeClassEnrollmentRepository
         volleyball.facility_course:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:FacilityCourse
             classes:
                 model: Volleyball\Bundle\EnrollmentBundle\Entity\FacilityCourse
                 interface: Volleyball\Component\Enrollment\Interfaces\FacilityCourseInterface
@@ -503,6 +537,7 @@ sylius_resource:
                 repository: Volleyball\Bundle\EnrollmentBundle\Repository\FacilityCourseRepository
         volleyball.passel_enrollment:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:PasselEnrollment
             classes:
                 model: Volleyball\Bundle\EnrollmentBundle\Entity\PasselEnrollment
                 interface: Volleyball\Component\Enrollment\Interfaces\PasselEnrollmentInterface
@@ -510,6 +545,7 @@ sylius_resource:
                 repository: Volleyball\Bundle\EnrollmentBundle\Repository\PasselEnrollmentRepository
         volleyball.season:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:Season
             classes:
                 model: Volleyball\Bundle\EnrollmentBundle\Entity\Season
                 interface: Volleyball\Component\Enrollment\Interfaces\SeasonInterface
@@ -517,6 +553,7 @@ sylius_resource:
                 repository: Volleyball\Bundle\EnrollmentBundle\Repository\SeasonRepository
         volleyball.week:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:Week
             classes:
                 model: Volleyball\Bundle\EnrollmentBundle\Entity\Week
                 interface: Volleyball\Component\Enrollment\Interfaces\WeekInterface
@@ -524,6 +561,7 @@ sylius_resource:
                 repository: Volleyball\Bundle\EnrollmentBundle\Repository\WeekRepository
         volleyball.period:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:Period
             classes:
                 model: Volleyball\Bundle\EnrollmentBundle\Entity\Period
                 interface: Volleyball\Component\Enrollment\Interfaces\PeriodInterface
@@ -533,6 +571,7 @@ sylius_resource:
         # User
         volleyball.admin:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:Admin
             classes:
                 model: Volleyball\Bundle\UserBundle\Entity\Admin
                 interface: Volleyball\Component\User\Interfaces\AdminInterface
@@ -540,6 +579,7 @@ sylius_resource:
                 repository: Volleyball\Bundle\UserBundle\Repository\AdminRepository
         volleyball.user:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:User
             classes:
                 model: Volleyball\Bundle\UserBundle\Entity\User
                 interface: Volleyball\Component\User\Interfaces\UserInterface
@@ -549,6 +589,7 @@ sylius_resource:
         # Misc
         volleyball.address:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:Address
             classes:
                 model: Volleyball\Bundle\UtilityBundle\Entity\Address
                 interface: Volleyball\Component\Utility\Interfaces\AddressInterface
@@ -556,6 +597,7 @@ sylius_resource:
                 repository: Volleyball\Bundle\UtilityBundle\Repository\AddressRepository
         volleyball.carousel:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:Carousel
             classes:
                 model: Volleyball\Bundle\UtilityBundle\Entity\Carousel
                 interface: Volleyball\Component\Utility\Interfaces\CarouselInterface
@@ -563,6 +605,7 @@ sylius_resource:
                 repository: Volleyball\Bundle\UtilityBundle\Repository\CarouselRepository
         volleyball.carousel_item:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:CarouselItem
             classes:
                 model: Volleyball\Bundle\UtilityBundle\Entity\CarouselItem
                 interface: Volleyball\Component\Utility\Interfaces\CarouselItemInterface
@@ -572,6 +615,7 @@ sylius_resource:
         # Reports
         volleyball.report:
             driver: doctrine/orm
+            templates: VolleyballResourceBundle:Report
             classes:
                 model: Volleyball\Bundle\ReportBundle\Entity\Report
                 interface: Volleyball\Component\Report\Interfaces\ReportInterface

@@ -54,7 +54,7 @@ volleyball_department:
 volleyball_faculty:
     resource: "@VolleyballFacilityBundle/Controller/FacultyController.php"
     type: annotation
-    prefix: /faculty
+    prefix: /
     
 volleyball_quarters:
     resource: "@VolleyballFacilityBundle/Controller/QuartersController.php"
@@ -91,12 +91,12 @@ volleyball_faction:
 volleyball_attendee:
     resource: "@VolleyballPasselBundle/Controller/AttendeeController.php"
     type: annotation
-    prefix: /attendees
+    prefix: /
     
 volleyball_leader:
     resource: "@VolleyballPasselBundle/Controller/LeaderController.php"
     type: annotation
-    prefix: /leaders
+    prefix: /
     
 volleyball_level:
     resource: "@VolleyballPasselBundle/Controller/LevelController.php"
@@ -158,6 +158,10 @@ fos_user_profile:
 fos_user_register:
     resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
     prefix: /signup
+    
+fos_user_registration_register:
+    pattern: /signup/
+    defaults: { _controller: VolleyballUtilityBundle:Homepage:register }
 
 fos_user_resetting:
     resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
@@ -166,6 +170,16 @@ fos_user_resetting:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
+volleyball_attendee_register:
+    pattern: /signup/attendee
+    defaults: { _controller: VolleyballPasselBundle:Attendee:register }
+volleyball_faculty_register:
+    pattern: /signup/faculty
+    defaults: { _controller: VolleyballFacilityBundle:Faculty:register }
+volleyball_leader_register:
+    pattern: /signup/leader
+    defaults: { _controller: VolleyballPasselBundle:Leader:register }
+
 
 # Imagine
 _liip_imagine:

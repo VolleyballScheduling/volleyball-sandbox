@@ -48,10 +48,12 @@
         "jms/aop-bundle":                       "1.0.1",
         "jms/security-extra-bundle":            "1.5.*@dev",
         "jms/translation-bundle":               "1.1.*",
+        "jms/serializer-bundle":                "dev-master",
         
         "gedmo/doctrine-extensions":            "2.3.x-dev",
         "stof/doctrine-extensions-bundle":      "~1.1@dev",
         
+        "friendsofsymfony/rest-bundle":         "dev-master",
         "friendsofsymfony/user-bundle":         "2.0.*@dev",
         "pugx/multi-user-bundle":               "3.0.*@dev",
         "friendsofsymfony/rest-bundle":         "~1.0",
@@ -73,7 +75,8 @@
         "liip/imagine-bundle":                  "dev-master",
         
         "sylius/resource-bundle":               "dev-master",
-        "sylius/resource":                      "dev-master"
+        "sylius/resource":                      "dev-master",
+        "sylius/storage":                       "0.12.*@dev"
     },
     "require-dev": {
         "elao/web-profiler-extra-bundle":       "dev-master",

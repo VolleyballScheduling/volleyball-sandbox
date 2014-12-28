@@ -24,6 +24,10 @@ volleyball_enrollment_passel:
     resource: "@VolleyballEnrollmentBundle/Controller/PasselEnrollmentController.php"
     type: annotation
     prefix: /enrollments/passels
+
+volleyball_active_enrollment:
+    resource: "@VolleyballEnrollmentBundle/Resources/config/routing/active_enrollment.yml"
+    prefix: /
     
 volleyball_period:
     resource: "@VolleyballEnrollmentBundle/Controller/PeriodController.php"
@@ -129,6 +133,11 @@ volleyball_user:
 homepage:
     pattern: /
     defaults: { _controller: VolleyballUtilityBundle:Homepage:index }
+    
+dashboard:
+    resource: "@VolleyballUtilityBundle/Controller/DashboardController.php" 
+    type: annotation
+    prefix: /
 
 about:
     pattern: /about
@@ -137,6 +146,9 @@ about:
 contact:
     pattern: /contact
     defaults: { _controller: VolleyballUtilityBundle:Homepage:contact }
+
+volleyball_class_attendence:
+    pattern: /attendence
 
 # FOS
 fos_user_security_login:
@@ -149,7 +161,7 @@ fos_user_security_check:
 
 fos_user_security_logout:
     pattern: /signout
-    defaults: { _controller: FOSUserBundle:Security_logout }
+    defaults: { _controller: FOSUserBundle:Security:logout }
 
 fos_user_profile:
     resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
@@ -170,6 +182,7 @@ fos_user_resetting:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
+    
 volleyball_attendee_register:
     pattern: /signup/attendee
     defaults: { _controller: VolleyballPasselBundle:Attendee:register }
@@ -184,3 +197,7 @@ volleyball_leader_register:
 # Imagine
 _liip_imagine:
     resource: "@LiipImagineBundle/Resources/config/routing.xml"
+    
+sylius_flow:
+    resource: @SyliusFlowBundle/Resources/config/routing.yml
+    prefix: /flow

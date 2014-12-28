@@ -17,7 +17,9 @@ security:
                 login_path: /signin
                 check_path: /signin-check
                 csrf_provider: form.csrf_provider
-            logout:       true
+            logout:
+                path: /signout
+                target: /
             anonymous:    true
 
     access_control:

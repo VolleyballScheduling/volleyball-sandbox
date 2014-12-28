@@ -76,7 +76,9 @@
         
         "sylius/resource-bundle":               "dev-master",
         "sylius/resource":                      "dev-master",
-        "sylius/storage":                       "0.12.*@dev"
+        "sylius/storage":                       "0.12.*@dev",
+        "sylius/flow-bundle":                   "dev-master",
+        "zenstruck/dashboard-bundle":           "*"
     },
     "require-dev": {
         "elao/web-profiler-extra-bundle":       "dev-master",

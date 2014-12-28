@@ -210,7 +210,7 @@ fos_user:
     firewall_name: main
     user_class: Volleyball\Bundle\UserBundle\Entity\User
     service:
-        user_manager: pugx_user_manager
+        user_manager: volleyball.user_manager
     registration:
         form:
             type: user_registration
@@ -235,13 +235,13 @@ jms_aop:
 ################################################################################
 knp_menu:
     twig: # false
-        template: VolleyballUtilityBundle:Menu:layout.html.twig
+        template: VolleyballResourceBundle:Menu:layout.html.twig
     default_renderer: twig
 
 ################################################################################
-## PUGX Configuration
+## Volleyball UserBundle (PUGX) Configuration
 ################################################################################
-pugx_multi_user:
+volleyball_user:
     users:
         faculty:
             entity:
@@ -277,7 +277,7 @@ pugx_multi_user:
             registration:
                 form:
                     type: Volleyball\Bundle\PasselBundle\Form\Type\AttendeeRegistrationFormType
-                    name: fos_user_registration_form
+                    name: attendee_registration
                     validation_groups: [Profile, Default, Attendee]
                 template: VolleyballResourceBundle:Attendee:registration.html.twig
             profile:
@@ -611,7 +611,15 @@ sylius_resource:
                 interface: Volleyball\Component\Utility\Interfaces\CarouselItemInterface
                 controller: Volleyball\Bundle\UtilityBundle\Controller\CarouselItemController
                 repository: Volleyball\Bundle\UtilityBundle\Repository\CarouselItemRepository
-        
+        volleyball.widget:
+            driver: doctrine/orm
+            templates: VolleyballResourceBundle:Widget
+            classes:
+                model: Volleyball\Bundle\UtilityBundle\Entity\Widget
+                interface: Volleyball\Component\Utility\Interfaces\WidgetInterface
+                controller: Volleyball\Bundle\UtilityBundle\Controller\UtilityController
+                repository: Volleyball\Bundle\UtilityBundle\Repository\WidgetRepository
+                
         # Reports
         volleyball.report:
             driver: doctrine/orm
@@ -621,3 +629,25 @@ sylius_resource:
                 interface: Volleyball\Component\Report\Interfaces\ReportInterface
                 controller: Volleyball\Bundle\ReportBundle\Controller\ReportController
                 repository: Volleyball\Bundle\ReportBundle\Repository\ReportRepository
+sylius_flow:
+    storage: sylius.process_storage.session
+    
+zenstruck_dashboard:
+    user_service: true
+    title: volleyball dashboard
+    theme: ZenstruckDashboardBundle:Bootstrap3
+    theme_options:
+            inverse: true
+            column1Width: 'col-md-4'
+            column2Width: 'col-md-6'
+            column3Width: 'col-md-4'
+    dashboard_template:   VolleyballUserBundle:Dashboard:index.html.twig
+    layout:               ::base.html.twig
+    menu_service:         ~
+    widgets:
+        quick_links:
+            title: ~
+            content: zenstruck_dashboard.controller.menuWidgetAction
+            group: column1
+            params: [ section: Dropdown ]
+    menu: ~

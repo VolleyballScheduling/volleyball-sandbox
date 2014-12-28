@@ -2,44 +2,19 @@
 
 {% block stylesheets %}
   {{ parent() }}
-<link rel="stylesheet" href="{{ asset('/css/form.css.php') }}" />
+<link rel="stylesheet" href="{{ asset('/bundles/volleyballresource/css/auth.css') }}" />
+<link rel="stylesheet" href="{{ asset('/bundles/volleyballresource/css/form.css') }}" />
 {% endblock %}
 
 {% block javascripts %}
   {{ parent() }}
-<script src="{{ asset('/js/jquery.infieldlabel.min.js') }}" type="text/javascript" ></script>
-<script src="{{ asset('/js/form.js') }}" type="text/javascript" ></script>
+  <script src="{{ asset('/bundles/volleyballresource/js/form.js') }}" type="text/javascript" ></script>
 {% endblock %}
 
 {% block fos_user_content %}
-<div class="signin-form-wrapper form-wrapper" id="signin-form">
-<h2>{{ 'sign in' | title }}</h2>
-<br />
-{% if error %}
-    <div class="error">{{ error|trans({}, 'FOSUserBundle') }}</div>
-{% endif %}
-<form action="{{ path("fos_user_security_check") }}" method="post">
-  <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-  <p>
-    <label for="username">email address</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" class="text-input" />
-  </p>
-  <p>
-    <label for="password">password</label>
-    <input type="password" id="password" name="_password" class="text-input" />
-  </p>
-  <p>
-    <label for="type">user type</label>
-    <select name="type" id="type">
-      <option value="attendee">attendee</option>
-      <option value="passel_leader">passel leader</option>
-      <option value="faculty">faculty</option>
-    </select>
-  <p>
-    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-    <label for="remember_me">remember me</label>
-    <input type="submit" id="_submit" name="_submit" value="sign in &raquo;" class="greenButton" />
-  </p>
-</form>
-</div>
+    <div class="content_box" id="login-form">
+    <h2>{{ 'sign in' | title }}</h2>
+    <br />
+    {% include 'VolleyballResourceBundle:Form:login.form.html.twig' %}
+    </div>
 {% endblock %}
